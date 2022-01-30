@@ -6,8 +6,6 @@ import { Component } from 'react/cjs/react.production.min';
 import  NavBar  from "./components/navbar"
 import react from 'react';
 
-
-
 class App extends Component{
 
   render(){
