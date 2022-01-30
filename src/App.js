@@ -5,19 +5,17 @@ import React, { useState, useEffect } from 'react';
 import { Component } from 'react/cjs/react.production.min';
 import  NavBar  from "./components/navbar"
 import react from 'react';
+import Cart from './components/shopping_page';
+import { MemoryRouter, Route, Router, Routes } from 'react-router-dom';
 
-class App extends Component{
+function App(){
 
-  render(){
-    return (
+  return(
       <div>
-      <div id="content">
-        <NavBar/>
-      </div>
+      <NavBar/>
+      <Route exact path="/cart" component={Cart}/>
       </div>
     );
-  }
-
 }
 
 

@@ -13,7 +13,7 @@
   width: 100vw;
   overflow: hidden;
   background-color: rgb(2, 0, 8);
-  position: absolute;
+  position: relative;
   
 }
 #loader>div{
@@ -22,7 +22,7 @@
   width: 50px;
   border: 5px solid grey;
   border-top-color: blue;
-  position: absolute;
+  position: relative;
   margin: auto;
   top:0;
   bottom: 0;
