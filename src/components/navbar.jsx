@@ -1,32 +1,34 @@
 import React, { Component } from 'react';
 import Searching_area from './search';
 import Modal from './modal';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default class NavBar extends Component{  
 
+  
   render() {
+    
     return(
-      
         <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">Kit-Zone</a>
+          <a className="navbar-brand ml-3" href="#">Kit-Zone	&#9917;</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="navbar-collapse collapse" id="navmenu">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="./public/index.html">Home</a>
+              <Link to="/" type="button"  className="nav-link specials">Home</Link>
               </li>
               <li className="nav-item" data-bs-toggle="modal" data-bs-target="#email">
-                <a className="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#email">Email-us</a>
+                <a className="nav-link specials" type="button" data-bs-toggle="modal" data-bs-target="#email">Email-us</a>
               </li>
               <li className="nav-item">
-                <a type="button" className="nav-link">Go to cart	&#x1f6d2;</a>
+              <Link to="/cart" type="button" className="nav-link specials">Go to cart	&#x1f6d2;</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Socials</a>
+                <a className="nav-link specials" href="#">Socials</a>
               </li>
             </ul>
             <Searching_area/>
