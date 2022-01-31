@@ -25,7 +25,7 @@ export default class Modal extends Component{
       let params ={
         org_name:"kit-zone.org",
         from_name : document.getElementById("sender-name").value,
-        to_name :"Saad",
+        to_name :"etc",
         message :document.getElementById("message-text").value
         
        }

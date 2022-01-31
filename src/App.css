@@ -7,12 +7,13 @@
 }
 #root{
   display: none;
+  background-color: rgb(27, 26, 26);
 }
 #loader{
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-color: rgb(2, 0, 8);
+  background-color: rgb(65, 59, 59);
   position: relative;
   
 }
@@ -41,4 +42,15 @@
 .specials:hover{
   text-decoration: none;
   color: rgb(56, 0, 0);
+}
+
+.glass_class{
+  height: 20em;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  backdrop-filter: blur(1200px);
+  border: 2px solid transparent;
+}
+.card-styles{
+  width:4em;
 }
