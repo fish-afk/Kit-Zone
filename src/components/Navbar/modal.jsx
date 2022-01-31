@@ -4,13 +4,23 @@ import { send } from '@emailjs/browser';
 export default class Modal extends Component{
 
     async send_email(){
+      
       const close_btn = document.getElementById("closeit");
+      
+      const cooldown=()=>{
+        const btn = document.getElementById("send-btn");
+        btn.disabled = true;
+        setTimeout(()=>{
+          btn.disabled = false;
+          console.log('Button Activated')}, 50000)
+      }
+
       const KEYS ={
         service_key: "service_8h3v6ew",
         template_key: "template_ud2ti7c",
         user_key: "user_uBwPjYzKVYr2jLKE17pNV"
 
-      } 
+      }
 
       let params ={
         org_name:"kit-zone.org",
@@ -24,19 +34,24 @@ export default class Modal extends Component{
         window.alert("-> name should be atleast 3 characters\n-> Message should be at least 50 charachters long")
 
       }else{
+        cooldown()
         await send(KEYS.service_key, KEYS.template_key, params, KEYS.user_key ).then((response) => {
          
          if(response.status == 200){
-           close_btn.click();
+          cooldown()
+          close_btn.click()
            alert("Email has been sent successfully");
+            
+          
 
          }else{
-           close_btn.click();
+          close_btn.click()
            alert("An error occured while trying to send an email...\n" + response.status);
+           
          }
         })
         .catch(()=>{
-          close_btn.click();
+          close_btn.click()
           alert("An error occured")
         })
       }
@@ -64,7 +79,7 @@ export default class Modal extends Component{
                 </div>
                 <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" id="closeit">Close</button>
-                  <button type="button" onClick={this.send_email} className="btn btn-primary">Send Email</button>
+                  <button type="button" onClick={this.send_email} id="send-btn" className="btn btn-primary">Send Email</button>
                 </div>
               </div>
             </div>

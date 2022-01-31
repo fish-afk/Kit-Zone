@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { Component } from 'react/cjs/react.production.min';
 import  NavBar  from "./components/Navbar/navbar"
 import react from 'react';
-import Cart from './components/shopping_cart';
-import Home_page from './components/Home_page';
+import Cart from './components/Shopping_cart/shopping_cart';
+import Home_page from './components/Home_page/Home_page';
 import { MemoryRouter, Route, Router, Routes } from 'react-router-dom';
 
 function App(){

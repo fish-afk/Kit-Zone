@@ -22,7 +22,7 @@ export default class NavBar extends Component{
               <Link to="/" type="button"  className="nav-link specials">Home</Link>
               </li>
               <li className="nav-item" data-bs-toggle="modal" data-bs-target="#email">
-                <a className="nav-link specials" type="button" data-bs-toggle="modal" data-bs-target="#email">Email-us</a>
+                <a className="nav-link specials" id="emailing" type="button" data-bs-toggle="modal" data-bs-target="#email">Email-us</a>
               </li>
               <li className="nav-item">
               <Link to="/cart" type="button" className="nav-link specials">Go to cart	&#x1f6d2;</Link>
