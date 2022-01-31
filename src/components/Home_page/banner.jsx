@@ -4,9 +4,9 @@ export default class Banner extends Component {
   render() {
     return (
 
-    <div className='container mt-5 glass_class'>
+    <div className='container bg-primary mt-5'>
     
-    <h1>this is home</h1>
+    <h1 id="banner-text">this is a banner to add some quote</h1>
 
     </div>
         
