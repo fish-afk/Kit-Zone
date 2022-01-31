@@ -3,8 +3,15 @@ import { send } from '@emailjs/browser';
 
 export default class Modal extends Component{
 
-    send_email(){
-      
+    async send_email(){
+      const close_btn = document.getElementById("closeit");
+      const KEYS ={
+        service_key: "service_8h3v6ew",
+        template_key: "template_ud2ti7c",
+        user_key: "user_uBwPjYzKVYr2jLKE17pNV"
+
+      } 
+
       let params ={
         org_name:"kit-zone.org",
         from_name : document.getElementById("sender-name").value,
@@ -12,17 +19,35 @@ export default class Modal extends Component{
         message :document.getElementById("message-text").value
         
        }
-      send("service_8h3v6ew", "template_ud2ti7c", params, "user_uBwPjYzKVYr2jLKE17pNV").then((res) => {
-        res.status == 200 ? window.alert("Email sent successfully"): window.alert("An error occured");
-      })
+      if(params.from_name.length < 3 || params.message.length < 50){
+
+        window.alert("-> name should be atleast 3 characters\n-> Message should be at least 50 charachters long")
+
+      }else{
+        await send(KEYS.service_key, KEYS.template_key, params, KEYS.user_key ).then((response) => {
+         
+         if(response.status == 200){
+           close_btn.click();
+           alert("Email has been sent successfully");
+
+         }else{
+           close_btn.click();
+           alert("An error occured while trying to send an email...\n" + response.status);
+         }
+        })
+        .catch(()=>{
+          close_btn.click();
+          alert("An error occured")
+        })
+      }
     }
     render(){
         return(
-            <div className="modal fade" id="email" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="email" aria-labelledby="emailModal" aria-hidden="true">
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">Compose Email</h5>
+                  <h5 className="modal-title" id="emailModal">Compose Email</h5>
                   <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body">
@@ -38,7 +63,7 @@ export default class Modal extends Component{
                   </form>
                 </div>
                 <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" id="closeit">Close</button>
                   <button type="button" onClick={this.send_email} className="btn btn-primary">Send Email</button>
                 </div>
               </div>
