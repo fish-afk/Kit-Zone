@@ -20,8 +20,8 @@
   margin-top: 10px;
   height: 50px;
   width: 50px;
-  border: 5px solid grey;
-  border-top-color: blue;
+  border: 5px solid rgb(82, 78, 78);
+  border-top-color: rgb(51, 51, 70);
   position: relative;
   margin: auto;
   top:0;

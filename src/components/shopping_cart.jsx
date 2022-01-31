@@ -5,7 +5,7 @@ class Cart extends Component{
 
     render(){
         return(
-            <div className='container-fluid'>
+            <div className='container-fluid fixedup'>
                 <h1>this is the cart area</h1>
             </div>
         )
