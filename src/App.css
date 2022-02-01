@@ -7,7 +7,7 @@
 }
 #root{
   display: none;
-  background-color: rgb(102, 92, 92);
+  background-color: rgb(241, 198, 198);
   margin-top: 4em;
 }
 #loader{
@@ -51,7 +51,7 @@
 }
 
 #banner-text{
-  color: rgb(218, 188, 20);
+  color: rgb(72, 255, 0);
 }
 
 #hovering:hover{
@@ -61,6 +61,6 @@
   font-size: 1.6em;
 }
 
-.margins{
+#margins{
   margin-top: 10em;
 }

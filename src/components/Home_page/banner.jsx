@@ -4,9 +4,9 @@ export default class Banner extends Component {
   render() {
     return (
 
-    <div className='container bg-dark mt-5 margins'>
+    <div className='container bg-dark mt-5 fst-italic' id='margins'>
     
-    <h1 id="banner-text">Get your favourite kits for the best prices, now!!!</h1>
+    <h2 id="banner-text">Get your favourite kits for the best prices...</h2>
 
     </div>
         
