@@ -7,7 +7,8 @@
 }
 #root{
   display: none;
-  background-color: rgb(27, 26, 26);
+  background-color: rgb(102, 92, 92);
+  margin-top: 4em;
 }
 #loader{
   height: 100vh;
@@ -43,11 +44,23 @@
   text-decoration: none;
   color: rgb(56, 0, 0);
 }
+.specials{
+  font-weight: bold;
+  font-size: 1.3em;
+  color: white;
+}
 
 #banner-text{
-  color: white;
+  color: rgb(218, 188, 20);
 }
 
 #hovering:hover{
   border: solid 5px rgb(198, 201, 12);
+}
+#Brand{
+  font-size: 1.6em;
+}
+
+.margins{
+  margin-top: 10em;
 }

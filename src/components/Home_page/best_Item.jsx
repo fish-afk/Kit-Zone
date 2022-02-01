@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Item = () => {
+export const Best_item = () => {
 
   return ( 
       
