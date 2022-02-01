@@ -8,7 +8,7 @@ export default class Main_deals extends Component {
     <div className='container'>
       
       <div className='container bg-primary mt-3'>
-      <header>Other kits</header>
+      <header>Other Kits</header>
       
      
       <div className='row text-center pb-4'>
