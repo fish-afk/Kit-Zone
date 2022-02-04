@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Searching_area from './search';
 import Modal from './modal';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import Item from '../Shopping_cart/Item';
 
 export default class NavBar extends Component{  
 
@@ -40,7 +41,7 @@ export default class NavBar extends Component{
               <button type="button" className="btn btn-secondary position-relative">
                   Go to Cart
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    0
+                      {Item}
                     <span className="visually-hidden">Cart items</span>
                   </span>
               </button>

@@ -1,10 +1,12 @@
 import React from 'react';
+import NavBar from '../../Navbar/navbar';
+import reactDom from 'react-dom';
 
 const input_enabler2 = (qty) => {
   return(qty < 1 ? <p></p> : <span><input className="bg-dark text-white" placeholder='Qty' maxLength="1" max={qty} min="1"
              required type="number"></input></span>)
 }
-
+let count = 0;
 const checker2 = (Qty) => {
 
   if (Qty > 0 && Qty <= 3) {
@@ -16,18 +18,22 @@ const checker2 = (Qty) => {
   }
 }
 
+
+
 export const Main_item = (props) => {
 
   const btn_enabler2 = (qty) => {
-  return(qty < 1 ? <p></p> : <button onClick={() => props.onAdded(props.id)}  className="btn btn-primary">Add to cart</button>)
+    return (qty < 1 ? <p></p> : <button onClick={() => { count += 1; return props.onAdded(props.id) }}  className="btn btn-primary">Add to cart</button>)
   }
+
 
   return ( 
       
+
     
       <div className='col gy-5'>
       <div className="card cards-styles" id="hovering">
-      <img src="https://www.minejerseys.ru/html/upload/temp_img/202107/64714/01627020753e377e22ena.jpg" className="card-img-top" alt="..."></img>
+      <img src={props.img_src} className="card-img-top" alt="..."></img>
         <div className="card-body">
           <form>
           <h5 className="card-title">{props.name}</h5>
