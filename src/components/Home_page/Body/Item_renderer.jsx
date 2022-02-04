@@ -66,7 +66,7 @@ export default class Items extends Component {
         </div>
       </div>
 
-      <div className='container bg-secondary mt-3'>
+      <div className='container bg-dark mt-3'>
       <div className='row text-center pb-5'>
       <header className='badge badge-warning'>Other kits available</header>
       

@@ -11,7 +11,7 @@ export default class Banner extends Component {
 
       </div>
       
-      <div className='container mt-5 bg-secondary'><h2 id="banner-text">Get your favourite kits for the best prices...</h2></div>
+      <div className='container mt-5 bg-dark'><h2 id="banner-text">Get your favourite kits for the best prices...</h2></div>
 
       </React.Fragment>
         
