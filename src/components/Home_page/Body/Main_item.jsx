@@ -39,12 +39,12 @@ export const Main_item = (props) => {
 
     
       <div className='col gy-5'>
-      <div className="card cards-styles" id="hovering">
-      <img src={props.img} className="card-img-top" alt="..."></img>
+      <div className="card card-styles" id="hovering">
+      <img className="card-img-top" alt="..."></img>
         <div className="card-body">
           <form>
-          <h5 className="card-title">{props.name}</h5>
-            <p>{ props.id }</p>{checker2(props.Qty_available)} {input_enabler2(props.Qty_available)} {btn_enabler2(props.Qty_available)}
+          <h5 className="card-title">{props.id}</h5>
+            {checker2(props.Qty_available)} {input_enabler2(props.Qty_available)} {btn_enabler2(props.Qty_available)}
           </form>
         </div>
       </div>

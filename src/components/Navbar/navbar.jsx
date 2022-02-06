@@ -17,7 +17,7 @@ export default class NavBar extends Component{
         <div>
         <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand ml-3" id="Brand">Kit-Zone	&#9917;</a>
+          <a className="navbar-brand ml-3" id="Brand">Kit-Zone </a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
             <span className="navbar-toggler-icon outline-white"></span>
           </button>
