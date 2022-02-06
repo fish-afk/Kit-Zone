@@ -18,7 +18,6 @@ const checker2 = (Qty) => {
   }
 }
 
-<<<<<<< HEAD
 const increment_item_count = (e) => {
     e.preventDefault();
     let counts = parseInt(localStorage.getItem("count"));
@@ -26,18 +25,12 @@ const increment_item_count = (e) => {
     
   }
 
-=======
->>>>>>> badd5fb6a704b33b9db105556194ce4256384025
 
 
 export const Main_item = (props) => {
 
   const btn_enabler2 = (qty) => {
-<<<<<<< HEAD
     return (qty < 1 ? <p></p> : <button onClick={ increment_item_count}  className="btn btn-primary">Add to cart</button>)
-=======
-    return (qty < 1 ? <p></p> : <button onClick={() => { count += 1; return props.onAdded(props.id) }}  className="btn btn-primary">Add to cart</button>)
->>>>>>> badd5fb6a704b33b9db105556194ce4256384025
   }
 
 
