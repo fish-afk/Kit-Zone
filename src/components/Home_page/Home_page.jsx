@@ -6,11 +6,13 @@ import Socials_area from './socials_area';
 export default class Home_page extends Component {
 
   render() {
-    return (<div>
+    return (<React.Fragment>
+      
       <div className='bg-primary heights'>.</div>
         <Banner/>
         <Items/>
-        <Socials_area/>
-    </div>);
+      <Socials_area />
+      
+    </React.Fragment>);
   }
 }

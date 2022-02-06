@@ -44,7 +44,7 @@ export const Main_item = (props) => {
         <div className="card-body">
           <form>
           <h5 className="card-title">{props.name}</h5>
-            {checker2(props.Qty_available)} {input_enabler2(props.Qty_available)} {btn_enabler2(props.Qty_available)}
+            <p>{ props.id }</p>{checker2(props.Qty_available)} {input_enabler2(props.Qty_available)} {btn_enabler2(props.Qty_available)}
           </form>
         </div>
       </div>
