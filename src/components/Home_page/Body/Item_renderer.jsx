@@ -68,14 +68,14 @@ const Items = (props) => {
         
       </div>
 
-    <div className='container row-lg-4 bg-secondary mt-3'>
+    <div className='container bg-secondary mt-3'>
       <div className='row text-center pb-5'>
       <header className='badge badge-warning'>Other kits available</header>
       
           {kits.map((kit, counter = 0) => {
              counter++
           return (
-            <Main_item key={kit._id} id={kit._id} />
+            <Main_item key={kit._id} id={kit._id} img={kit.url} />
           );
         })}
       

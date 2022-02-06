@@ -40,7 +40,7 @@ export const Main_item = (props) => {
     
       <div className='col gy-5'>
       <div className="card cards-styles" id="hovering">
-      <img src={props.img_src} className="card-img-top" alt="..."></img>
+      <img src={props.img} className="card-img-top" alt="..."></img>
         <div className="card-body">
           <form>
           <h5 className="card-title">{props.name}</h5>
