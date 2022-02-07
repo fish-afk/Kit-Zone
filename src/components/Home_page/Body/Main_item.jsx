@@ -3,7 +3,7 @@ import NavBar from '../../Navbar/navbar';
 import reactDom from 'react-dom';
 
 const input_enabler2 = (qty) => {
-  return(qty < 1 ? <p></p> : <span><input className="bg-dark text-white" placeholder='Qty' maxLength="1" max={qty} min="1"
+  return(qty < 1 ? <p></p> : <span><input className="bg-dark text-white widths" placeholder='Qty' maxLength="1" max={qty} min="1"
              required type="number"></input></span>)
 }
 let count = 0;
@@ -38,13 +38,14 @@ export const Main_item = (props) => {
       
 
     
-      <div className='col gy-5'>
+      <div className='col gy-4'>
       <div className="card card-styles" id="hovering">
-      <img className="card-img-top" alt="..."></img>
+        <img src={props.img} className="card-img-top" alt="..."></img>
         <div className="card-body">
           <form>
-          <h5 className="card-title">{props.id}</h5>
-            {checker2(props.Qty_available)} {input_enabler2(props.Qty_available)} {btn_enabler2(props.Qty_available)}
+          <h5 className="card-title">"ushdh"</h5>
+            {checker2(props.Qty_available)}
+            <span>{input_enabler2(props.Qty_available)} {btn_enabler2(props.Qty_available)}</span>
           </form>
         </div>
       </div>
