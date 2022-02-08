@@ -8,10 +8,12 @@ import { useEffect, useState } from 'react';
 const Items = (props) => {
 
   const [soccer_kits, set_soccer_kits] = useState([]);
+  const [F1_kits, set_F1_kits] = useState([]);
+  const [BALR_kits, set_Balr_kits] = useState([]);
   const [searchteamName, setSearchteamName ] = useState("");
 
   useEffect(() => {
-     retrievekits();
+    refreshList();
   }, []);
 
   const onChangeSearchName = e => {
@@ -23,8 +25,8 @@ const Items = (props) => {
     find(searchteamName, "teamname")
   };
 
-  const retrievekits = () => {
-    KitsDataService.getAll()
+  const retrieve_soccer_kits = () => {
+    KitsDataService.getAllkits_for_a_specific_collection("other_kits")
       .then(response => {
         console.log(response.data);
         set_soccer_kits(response.data.kits);
@@ -39,11 +41,49 @@ const Items = (props) => {
       });
   };
 
+  const retrieve_f1_kits = () => {
+    KitsDataService.getAllkits_for_a_specific_collection("F1_kits")
+      .then(response => {
+        console.log(response.data);
+        set_F1_kits(response.data.kits);
+        
+        
+      }).then(
+        console.log(F1_kits)
+      )
+      .catch(error => {
+        console.log(error);
+        throw error;
+      });
+  };
+
+  const retrieve_balr_kits = () => {
+    KitsDataService.getAllkits_for_a_specific_collection("balr_kits")
+      .then(response => {
+        console.log(response.data);
+        set_Balr_kits(response.data.kits);
+        
+      }).then(
+        console.log(BALR_kits)
+      )
+      .catch(error => {
+        console.log(error);
+        throw error;
+      });
+  };
+
   const find = (query, by) => {
     KitsDataService.find(query, by)
       .then(response => {
         console.log(response.data);
-        set_soccer_kits(response.data.kits);
+        if(response.data.collection_name == "other_kits"){
+          set_soccer_kits(response.data.kits);
+        }else if(response.data.collection_name == "F1_kits"){
+          set_F1_kits(response.data.kits);
+        }else if(response.data.collection_name == "balr_kits"){
+          set_Balr_kits(response.data.kits);
+        }
+        
       })
       .catch(e => {
         console.log(e);
@@ -51,7 +91,9 @@ const Items = (props) => {
   };
 
   const refreshList = () => {
-    retrievekits();
+    retrieve_soccer_kits();
+     retrieve_f1_kits();
+     retrieve_balr_kits();
   };
 
   return (
@@ -70,24 +112,20 @@ const Items = (props) => {
 
        
 
-      <div className='container-md bg-secondary mt-3'>
+      <div className='container-lg bg-dark mt-3'>
       <div className='row text-center pb-5'>
-      <header className='badge badge-warning'>Other soccer_kits available</header>
+      <header className='badge badge-warning'>Soccer kits available</header>
       
       
              
       {soccer_kits.map(kit => 
-            <Main_item key={kit._id} id={kit._id} img={kit.url} Qty_available={kit.qty}/>
+            <Main_item key={kit._id} name={kit.name} id={kit._id} img_src={kit.img_src} Qty_available={kit.qty} 
+            description={kit.description}/>
           )}
       
 
       </div>
       </div>
-
-      
-
-     
-      
      
     </React.Fragment>
 

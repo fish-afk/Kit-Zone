@@ -3,10 +3,6 @@ import axios from "axios"
 const URL = "https://data.mongodb-api.com/app/kitzone-functions-wqhlr/endpoint"
 class KitDataService {
 
-  getAll(page = 0) {
-    return axios.get(`${URL}/Filterkits?page=${page}`);
-  }
-
   get(id) {
     return axios.get(`${URL}/getSpecificKit_?id=${id}`);
   }
@@ -19,8 +15,8 @@ class KitDataService {
     return axios.get(`${URL}/Promo_kits`)
   }
 
-  getAllnormal() {
-    return axios.get(`${URL}/getkitData`)
+  getAllkits_for_a_specific_collection(query ,by = "collections"){
+    return axios.get(`${URL}/get_All_for_specified?${by}=${query}`)
   }
  // createReview(data) {
  //   return axios.post("/review-new", data);

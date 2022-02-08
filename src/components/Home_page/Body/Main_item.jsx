@@ -25,12 +25,13 @@ export const Main_item = (props) => {
   return ( 
       
     
-      <div className='col gy-5'>
+      <div className='col gy-3'>
       <div className="card cards-styles" id="hovering">
-      <img src="https://www.minejerseys.ru/html/upload/temp_img/202107/64714/01627020753e377e22ena.jpg" className="card-img-top" alt="..."></img>
+      <img src={props.img_src} className="card-img-top bg-secondary" alt="..."></img>
         <div className="card-body">
           <form>
-          <h5 className="card-title">{props.name}</h5>
+          <h5 className="card-title px-1 badge-dark">{props.name}</h5>
+          <p>{props.description}</p>
             {checker2(props.Qty_available)} {input_enabler2(props.Qty_available)} {btn_enabler2(props.Qty_available)}
           </form>
         </div>
