@@ -23,7 +23,7 @@ const checker = (Qty) => {
 export const Best_item = (props) => {
 
   const btn_enabler = (qty) => {
-  return (qty <= 1 ? <p></p> : <button className="btn btn-primary">Add to cart</button>)
+  return (qty <= 1 ? <p></p> : <button className="btn-primary widths">Add to cart</button>)
   }
 
   return ( 
@@ -31,7 +31,7 @@ export const Best_item = (props) => {
     
       <div className='col gy-5'>
       <div className="card cards-styles" id="hovering">
-      <img src="https://www.minejerseys.ru/html/upload/temp_img/202107/64714/01627020753e377e22ena.jpg" className="card-img-top" alt="..."></img>
+      <img src="Kit_images/BALR/BALR._Black_.svg" className="card-img-top" alt="..."></img>
         <div className="card-body">
           
           <h5 className="card-title">{props.name}</h5>

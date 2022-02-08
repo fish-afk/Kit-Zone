@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Best_item } from './best_Item';
 import { Main_item } from './Main_item';
-import KitsDataService from "../../fetch_kit_data"
+import KitsDataService from "../../fetch_kit_data";
 import { useEffect, useState } from 'react';
 
 
 const Items = (props) => {
 
-  const [kits, setkits] = useState([]);
+  const [soccer_kits, set_soccer_kits] = useState([]);
   const [searchteamName, setSearchteamName ] = useState("");
 
   useEffect(() => {
-    retrievekits();
+     retrievekits();
   }, []);
 
   const onChangeSearchName = e => {
@@ -27,11 +27,11 @@ const Items = (props) => {
     KitsDataService.getAll()
       .then(response => {
         console.log(response.data);
-        setkits(response.data.kits);
+        set_soccer_kits(response.data.kits);
         
         
       }).then(
-        console.log(kits)
+        console.log(soccer_kits)
       )
       .catch(error => {
         console.log(error);
@@ -43,7 +43,7 @@ const Items = (props) => {
     KitsDataService.find(query, by)
       .then(response => {
         console.log(response.data);
-        setkits(response.data.kits);
+        set_soccer_kits(response.data.kits);
       })
       .catch(e => {
         console.log(e);
@@ -70,18 +70,23 @@ const Items = (props) => {
 
        
 
-      <div className='container bg-secondary mt-3'>
+      <div className='container-md bg-secondary mt-3'>
       <div className='row text-center pb-5'>
-      <header className='badge badge-warning'>Other kits available</header>
+      <header className='badge badge-warning'>Other soccer_kits available</header>
       
-          {kits.map(kit => 
-            <Main_item key={kit._id} id={kit._id} img={kit.url} />
+      
+             
+      {soccer_kits.map(kit => 
+            <Main_item key={kit._id} id={kit._id} img={kit.url} Qty_available={kit.qty}/>
           )}
-          
-          
+      
+
       </div>
       </div>
 
+      
+
+     
       
      
     </React.Fragment>

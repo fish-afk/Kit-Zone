@@ -63,16 +63,14 @@
   opacity: 0.9;
 }
 
-#margins{
-  margin-top: 10em;
-}
+
 .imgs{
   max-width: 30%;
 }
 
-.heights{
-  height: 0.45em;
-}
-.widths{
-  width: 5em;
+
+
+#socials_area{
+  position: relative;
+  margin-top:50px;
 }

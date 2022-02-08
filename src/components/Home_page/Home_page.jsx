@@ -8,7 +8,7 @@ export default class Home_page extends Component {
   render() {
     return (<React.Fragment>
       
-      <div className='bg-primary heights'>.</div>
+      
         <Banner/>
         <Items/>
       <Socials_area />
