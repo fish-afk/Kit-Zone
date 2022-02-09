@@ -77,5 +77,29 @@
 
 .cards-styles{
 
-  width: 18rem;
+  width: 300px;
+  
+}
+@media screen and (min-width: 350px) and (max-width:770px){
+  .cards-styles{
+    width: 160px;
+    
+  }
+}
+.banners{
+  opacity: 0.9;
+}
+
+body{
+  background-color:linear-gradient(-45deg, rgb(10, 115, 141), rgb(82, 161, 138), rgb(4, 113, 177), rgb(9, 53, 73));
+}
+
+
+#latter{
+  background-color: linear-gradient(-45deg, rgb(10, 115, 141), rgb(82, 161, 138), rgb(4, 113, 177), rgb(9, 53, 73));
+}
+
+.linkstomedias{
+  width:4%;
+  margin-left:1rem;
 }

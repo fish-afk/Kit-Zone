@@ -102,7 +102,7 @@ const Items = (props) => {
       <div className='container'>
         
           <form className="d-flex">
-          <input className="form-control me-2 bg-dark text-white" type="text"
+          <input className="form-control me-2 bg-dark text-white" type="text" id="searcher"
             value={searchteamName} onChange={onChangeSearchName} placeholder="Search by team name..."></input>
           
           <button className="btn btn-outline-light bg-dark" type="button" onClick={findByName}>Search</button>
@@ -112,7 +112,7 @@ const Items = (props) => {
 
        
 
-      <div className='container-lg bg-dark mt-3'>
+      <div className='container bg-dark banners mt-3'>
       <div className='row text-center pb-5'>
       <header className='badge badge-warning'>Soccer kits available</header>
       
@@ -120,7 +120,7 @@ const Items = (props) => {
              
       {soccer_kits.map(kit => 
             <Main_item key={kit._id} name={kit.name} id={kit._id} img_src={kit.img_src} Qty_available={kit.qty} 
-            description={kit.description}/>
+            description={kit.description} price={kit.price} teamname={kit.teamname}/>
           )}
       
 

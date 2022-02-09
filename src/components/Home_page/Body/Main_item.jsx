@@ -8,11 +8,11 @@ const input_enabler2 = (qty) => {
 const checker2 = (Qty) => {
 
   if (Qty > 0 && Qty <= 3) {
-    return (<p className='text-success fw-bold'>{Qty} left...</p>)
+    return (`${Qty} left...`)
   } else if (Qty <= 1) {
     return(<p className='text-danger fw-bold'>Out of stock !</p>)
   } else {
-    return <p className='text-success fw-bold'>In stock...</p>;
+    return <div className='text-success'>In stock...</div>;
   }
 }
 
@@ -30,9 +30,9 @@ export const Main_item = (props) => {
       <img src={props.img_src} className="card-img-top bg-secondary" alt="..."></img>
         <div className="card-body">
           <form>
-          <h5 className="card-title px-1 badge-dark">{props.name}</h5>
-          <p>{props.description}</p>
-            {checker2(props.Qty_available)} {input_enabler2(props.Qty_available)} {btn_enabler2(props.Qty_available)}
+          <h6 className="card-title px-1 badge-dark">{props.teamname}:<p>{props.description}</p></h6>
+          
+            <div>{checker2(props.Qty_available)} <div className="fw-bold">Price: K{props.price}</div></div>{input_enabler2(props.Qty_available)} {btn_enabler2(props.Qty_available)}
           </form>
         </div>
       </div>

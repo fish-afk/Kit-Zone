@@ -36,19 +36,26 @@
     <title>Kit-Zone-Site.</title>
   </head>
   <body>
-    <div id="loader">
-      <div></div>
-    </div>
+    
     <div id="root">
       
     </div>
-    
+    <div id="latter"></div>
     
     <script>
       $(window).on('load',function(){
         $("#loader").fadeOut(2000);
         $("#root").fadeIn(200);
       })
+    </script>
+
+    <script>
+      $(document).keypress(
+  function(event){
+    if (event.which == '13') {
+      event.preventDefault();
+    }
+});
     </script>
     <!--
       This HTML file is a template.
