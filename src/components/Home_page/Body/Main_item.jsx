@@ -16,6 +16,8 @@ const checker2 = (Qty) => {
   }
 }
 
+
+
 export const Main_item = (props) => {
 
   const btn_enabler2 = (qty) => {
@@ -30,7 +32,7 @@ export const Main_item = (props) => {
       <img src={props.img_src} className="card-img-top bg-secondary" alt="..."></img>
         <div className="card-body">
           <form>
-          <h6 className="card-title px-1 badge-dark">{props.teamname}:<p>{props.description}</p></h6>
+          <h6 className="card-title badge-dark">{props.teamname}:<p>{props.description}</p></h6>
           
             <div>{checker2(props.Qty_available)} <div className="fw-bold">Price: K{props.price}</div></div>{input_enabler2(props.Qty_available)} {btn_enabler2(props.Qty_available)}
           </form>

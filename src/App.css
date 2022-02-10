@@ -80,12 +80,91 @@
   width: 300px;
   
 }
-@media screen and (min-width: 350px) and (max-width:770px){
+@media screen and (max-width:350px) and (min-width:320px) {
+  .cards-styles{width: 299px;
+    justify-content:center;}
+  .kit-place{
+    justify-content: center;
+  }
+}
+@media screen and (max-width:250px) and (min-width:100px) {
+  .cards-styles{width: 200px;
+    justify-content:center;}
+  .kit-place{
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 357px) and (max-width:368px){
+  .cards-styles{
+    width: 155px;
+    
+  }
+}
+
+
+@media screen and (min-width: 400px) and (max-width:770px){
+  .inner-div{
+    padding-left:1em;
+    
+  }
+}
+
+@media screen and (min-width: 420px) and (max-width:450px){
+  .cards-styles{
+    width: 180px;
+    
+  }
+}
+@media screen and (min-width: 450px) and (max-width:500px){
+  .cards-styles{
+    width: 190px;
+    
+  }
+}
+
+@media screen and (min-width: 369px) and (max-width:423px){
   .cards-styles{
     width: 160px;
     
   }
 }
+@media screen and (min-width: 351px) and (max-width:357px){
+  .cards-styles{
+    width: 150px;
+    
+  }
+}
+
+@media screen and (min-width: 250px) and (max-width:300px){
+  .cards-styles{
+    width: 250px;
+    
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width:980px){
+  .cards-styles{
+    width: 150px;
+    
+  }
+}
+@media screen and (min-width: 980px) and (max-width:1200px){
+  .cards-styles{
+    width: 200px;
+    
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width:537px){
+  .cards-styles{
+    width: 130px;
+    
+  }
+}
+
+
+
+
 .banners{
   opacity: 0.9;
 }

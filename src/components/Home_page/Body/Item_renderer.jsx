@@ -112,8 +112,8 @@ const Items = (props) => {
 
        
 
-      <div className='container bg-dark banners mt-3'>
-      <div className='row text-center pb-5'>
+      <div className='container bg-dark banners mt-3 kit-place'>
+      <div className='row text-center pb-5 inner-div'>
       <header className='badge badge-warning'>Soccer kits available</header>
       
       
