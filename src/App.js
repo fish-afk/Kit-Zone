@@ -8,15 +8,18 @@ import Cart from './components/Shopping_cart/shopping_cart';
 import Home_page from './components/Home_page/Home_page';
 import { MemoryRouter, Route, Router, Routes } from 'react-router-dom';
 import Other_wear from './components/other-wear/other-wear';
+import {CartProvider} from "react-use-cart"
 
 function App(){
 
   return(
       <div>
+      <CartProvider>
       <NavBar/>
       <Route exact path="/cart" component={Cart}/>
       <Route exact path="/" component={Home_page}/>
       < Route exact path="/other-wear" component={Other_wear}/>
+      </CartProvider>
       </div>
     );
 }

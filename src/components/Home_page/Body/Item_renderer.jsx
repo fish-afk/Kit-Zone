@@ -9,7 +9,6 @@ const Items = (props) => {
 
   const [soccer_kits, set_soccer_kits] = useState([]);
   const [F1_kits, set_F1_kits] = useState([]);
-  const [BALR_kits, set_Balr_kits] = useState([]);
   const [searchteamName, setSearchteamName ] = useState("");
 
   useEffect(() => {
@@ -57,20 +56,7 @@ const Items = (props) => {
       });
   };
 
-  const retrieve_balr_kits = () => {
-    KitsDataService.getAllkits_for_a_specific_collection("balr_kits")
-      .then(response => {
-        console.log(response.data);
-        set_Balr_kits(response.data.kits);
-        
-      }).then(
-        console.log(BALR_kits)
-      )
-      .catch(error => {
-        console.log(error);
-        throw error;
-      });
-  };
+  
 
   const find = (query, by) => {
     KitsDataService.find(query, by)
@@ -80,8 +66,6 @@ const Items = (props) => {
           set_soccer_kits(response.data.kits);
         }else if(response.data.collection_name == "F1_kits"){
           set_F1_kits(response.data.kits);
-        }else if(response.data.collection_name == "balr_kits"){
-          set_Balr_kits(response.data.kits);
         }
         
       })
@@ -93,7 +77,7 @@ const Items = (props) => {
   const refreshList = () => {
     retrieve_soccer_kits();
      retrieve_f1_kits();
-     retrieve_balr_kits();
+     
   };
 
   return (
@@ -118,9 +102,9 @@ const Items = (props) => {
       
       
              
-      {soccer_kits.map(kit => 
-            <Main_item key={kit._id} name={kit.name} id={kit._id} img_src={kit.img_src} Qty_available={kit.qty} 
-            description={kit.description} price={kit.price} teamname={kit.teamname}/>
+      {soccer_kits.map((kit, index) => 
+            <Main_item key={index} name={kit.name} id={index} img_src={kit.img_src} Qty_available={kit.qty} 
+            description={kit.description} price={kit.price} item={kit} teamname={kit.teamname}/>
           )}
       
 
@@ -135,7 +119,7 @@ const Items = (props) => {
              
       {F1_kits.map(kit => 
             <Best_item key={kit._id} name={kit.name} id={kit._id} img_src={kit.img_src} Qty_available={kit.qty} 
-            description={kit.description} price={kit.price} teamname={kit.teamname}/>
+            description={kit.description} price={kit.price} item={kit} teamname={kit.teamname}/>
           )}
       
 

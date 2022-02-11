@@ -1,4 +1,5 @@
 import React from 'react';
+import { useCart } from 'react-use-cart';
 
 const input_enabler2 = (qty) => {
   return(qty < 1 ? <p></p> : <span><input className="bg-dark text-white" placeholder='Qty' maxLength="1" max={qty} min="1"
@@ -21,9 +22,9 @@ const checker2 = (Qty) => {
 export const Main_item = (props) => {
 
   const btn_enabler2 = (qty) => {
-  return(qty < 1 ? <p></p> : <button onClick={() => props.onAdded(props.id)}  className="btn btn-primary">Add to cart</button>)
-  }
-
+    return(qty < 1 ? <p></p> : <button onClick={() => addItem(props.item)} type="button" className="btn btn-primary">Add to cart</button>)
+    }
+  const { addItem } = useCart()
   return ( 
       
     

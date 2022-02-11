@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import Modal from './modal';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import Item from '../Shopping_cart/Item';
+import { useCart } from 'react-use-cart';
 
-localStorage.setItem("count", "0");
+export default function Navbar(){  
 
-export default class NavBar extends Component{  
-
-  go_to_home(){
+  const go_to_home = () => {
     document.getElementById("Homes").click();
   }
   
-  render() {
+  const {items} = useCart();
     
     return(
         <div>
@@ -37,16 +35,16 @@ export default class NavBar extends Component{
               </li>
               
               <li className="nav-item">
-                <a className="nav-link specials px-3" onClick={this.go_to_home} href="#socials-area">Socials</a>
+                <a className="nav-link specials px-3" onClick={go_to_home} href="#socials-area">Socials</a>
               </li>
 
               <Link to="/cart" type="button" className="nav-link specials px-3">
 
-              <button onClick={this.increment_item_count} type="button" className="btn btn-secondary position-relative">
+              <button type="button" className="btn btn-secondary position-relative">
                   Go to Cart
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                      {localStorage.getItem("count")}
-                    <span className="visually-hidden">Cart items</span>
+                     
+                    <span className="visually-hidden">{items.length}</span>
                   </span>
               </button>
 
@@ -65,5 +63,5 @@ export default class NavBar extends Component{
     
     
     );
-    }
+    
 }

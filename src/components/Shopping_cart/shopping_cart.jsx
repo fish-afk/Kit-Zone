@@ -1,32 +1,22 @@
 import React, { Component } from 'react';
-import Item_group from "./Item_group"
+import { useCart } from 'react-use-cart';
 
 
-class Cart extends Component{
+export default function Cart() {
 
-    render(){
-        return (
-            <React.Fragment>
-                
-  
-                <div className='container bg-dark'>
-                    <h2 className='container fs-3 text-success'>You have slected to buy the following Items:</h2>
-                    <Item_group />
-                    <Item_group />
-                    <Item_group />
-                    <Item_group />
-                    <Item_group />
-                    <Item_group />
-                    
-                    
-                </div>
+  const {items} = useCart();
+
+  console.warn(items)
+  return (
+
+    
+    <div>Cart {items} </div>
 
 
-            </React.Fragment>
-            
-                
-            
-        )
-    }
+
+  )
+
+
+
 }
-export default Cart;
+

@@ -3,9 +3,9 @@ import Banner from './banner';
 import Items from './Body/Item_renderer';
 import Socials_area from './socials_area';
 
-export default class Home_page extends Component {
+export default function Home_page(){
 
-  render() {
+  
     return (<React.Fragment>
       
       
@@ -14,5 +14,5 @@ export default class Home_page extends Component {
       <Socials_area />
       
     </React.Fragment>);
-  }
+  
 }

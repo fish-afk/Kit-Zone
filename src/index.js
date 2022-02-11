@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/css/bootstrap-grid.css"
 import { BrowserRouter } from 'react-router-dom';
+import { CartProvider } from 'react-use-cart';
 
 import reportWebVitals from './reportWebVitals';
 
