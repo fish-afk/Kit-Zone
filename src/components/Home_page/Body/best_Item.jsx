@@ -1,42 +1,54 @@
 import React from 'react';
-import KitDataService from '../../fetch_kit_data';
-
-const data = KitDataService.find("barca", "teamname")
-console.log(data);
-
-const input_enabler = (qty) => {
+import { useEffect, useState } from 'react/cjs/react.production.min';
+const input_enabler2 = (qty) => {
   return(qty < 1 ? <p></p> : <span><input className="bg-dark text-white" placeholder='Qty' maxLength="1" max={qty} min="1"
              required type="number"></input></span>)
 }
 
-const checker = (Qty) => {
+const checker2 = (Qty) => {
 
   if (Qty > 0 && Qty <= 3) {
-    return (<p className='text-success fw-bold'>{Qty} left...</p>)
-  } else if (Qty < 1) {
+    return (`${Qty} left...`)
+  } else if (Qty <= 1) {
     return(<p className='text-danger fw-bold'>Out of stock !</p>)
   } else {
-    return <p className='text-success fw-bold'>In stock...</p>;
+    return <div className='text-success'>In stock...</div>;
   }
 }
 
-export const Best_item = (props) => {
+const return_dropdown = () => {
+  return (<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Wear type -
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" id="Shirt">Shirt</a></li>
+    <li><a class="dropdown-item" id="coat">Coat</a></li>
+    
+  </ul>
+</div>);
+}
 
-  const btn_enabler = (qty) => {
-  return (qty <= 1 ? <p></p> : <button className="btn-primary widths">Add to cart</button>)
+export const Best_item = (props) => {
+  
+
+  
+  const btn_enabler2 = (qty) => {
+  return(qty < 1 ? <p></p> : <button onClick={() => props.onAdded(props.id)}  className="btn btn-primary">Add to cart</button>)
   }
 
   return ( 
       
     
-      <div className='col gy-5'>
+      <div className='col gy-3'>
       <div className="card cards-styles" id="hovering">
-      <img src="Kit_images/BALR/BALR._Black_.svg" className="card-img-top" alt="..."></img>
+      <img src={props.img_src} className="card-img-top bg-secondary" alt="..."></img>
         <div className="card-body">
+          <form>
+          <h6 className="card-title badge-dark">{`${props.teamname}\n`}: {props.description}</h6>
           
-          <h5 className="card-title">{props.name}</h5>
-            {checker(props.Qty_available)} {input_enabler(props.Qty_available)} {btn_enabler(props.Qty_available)}
-          
+            <div>{checker2(props.Qty_available)} <div className="fw-bold">Price: K{props.price}</div></div>{input_enabler2(props.Qty_available)} {btn_enabler2(props.Qty_available)}
+          </form>
         </div>
       </div>
       </div>

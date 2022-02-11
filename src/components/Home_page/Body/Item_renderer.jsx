@@ -126,6 +126,21 @@ const Items = (props) => {
 
       </div>
       </div>
+
+      <div className='container bg-danger banners mt-3 kit-place'>
+      <div className='row text-center pb-5 inner-div'>
+      <header className='badge badge-warning'>Formula 1 kits available</header>
+      
+      
+             
+      {F1_kits.map(kit => 
+            <Best_item key={kit._id} name={kit.name} id={kit._id} img_src={kit.img_src} Qty_available={kit.qty} 
+            description={kit.description} price={kit.price} teamname={kit.teamname}/>
+          )}
+      
+
+      </div>
+      </div>
      
     </React.Fragment>
 

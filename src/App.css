@@ -162,6 +162,13 @@
   }
 }
 
+@media screen and (min-width: 1900px) and (max-width:7000px){
+  
+  .cards-styles{
+    width: 400px;
+  }
+  
+}
 
 
 

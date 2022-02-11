@@ -58,6 +58,25 @@
     }
 });
     </script>
+<script>
+  jQuery(document).ready(function($) {
+    var alterClass = function() {
+      var ww = document.body.clientWidth;
+      if (ww < 1700) {
+        $('.kit-place').removeClass('container-fluid');
+        $('.kit-place').addClass('container');
+      } else if (ww >= 1700) {
+        $('.kit-place').addClass('container-fluid');
+        $('.kit-place').removeClass('container');
+      };
+    };
+    $(window).resize(function(){
+      alterClass();
+    });
+    //Fire it when the page first loads:
+    alterClass();
+  });
+  </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

@@ -23,15 +23,19 @@ export default class NavBar extends Component{
           </button>
           <div className="navbar-collapse collapse" id="navmenu">
             <ul className="navbar-nav ms-auto">
+              
               <li className="nav-item">
               <Link to="/" type="button" className="nav-link specials px-3 active-link" id="Homes">Home</Link>
               </li>
+
+              <li className="nav-item">
+              <Link to="/other-wear" type="button" className="nav-link specials px-3 active-link" id="Homes">Other-wears</Link>
+              </li>
+
               <li className="nav-item" data-bs-toggle="modal" data-bs-target="#email">
                 <a className="nav-link specials px-3" id="emailing" type="button" data-bs-toggle="modal" data-bs-target="#email">Email-us</a>
               </li>
-              <li className="nav-item">
               
-              </li>
               <li className="nav-item">
                 <a className="nav-link specials px-3" onClick={this.go_to_home} href="#socials-area">Socials</a>
               </li>
