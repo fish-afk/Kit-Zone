@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Main_item } from './Item';
+import { Main_item, Other_wear } from './Item';
 import KitsDataService from "../fetch_kit_data"
 import { useEffect, useState } from 'react';
 
@@ -81,7 +81,7 @@ const Item_renderer = (props) => {
       
              
       {BALR_kits.map(kit => 
-            <Main_item key={kit._id} name={kit.name} id={kit._id} img_src={kit.img_src} Qty_available={kit.qty} 
+            <Other_wear key={kit._id} name={kit.name} id={kit._id} img_src={kit.img_src} Qty_available={kit.qty} 
             description={kit.description} price={kit.price} teamname={kit.teamname}/>
           )}
       

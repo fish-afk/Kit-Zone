@@ -1,30 +1,31 @@
 import React from 'react';
 import { useCart } from 'react-use-cart';
 
-const input_enabler2 = (qty) => {
-  return(qty < 1 ? <p></p> : <span><input className="bg-dark text-white" placeholder='Qty' maxLength="1" max={qty} min="1"
-             required type="number"></input></span>)
-}
 
-const checker2 = (Qty) => {
+export const Other_wear = (props) => {
 
-  if (Qty > 0 && Qty <= 3) {
-    return (`${Qty} left...`)
-  } else if (Qty <= 1) {
-    return(<p className='text-danger fw-bold'>Out of stock !</p>)
-  } else {
-    return <div className='text-success'>In stock...</div>;
+  const { addItem } = useCart()
+
+  const checker2 = (Qty) => {
+  
+    if (Qty > 0 && Qty <= 3) {
+      return (`${Qty} left...`)
+    } else if (Qty <= 1) {
+      return(<p className='text-danger fw-bold'>Out of stock !</p>)
+    } else {
+      return <div className='text-success'>In stock...</div>;
+    }
   }
-}
 
-
-
-export const Main_item = (props) => {
+  const return_qty = () => {
+    addItem(props.item)
+  }
 
   const btn_enabler2 = (qty) => {
-    return(qty < 1 ? <p></p> : <button onClick={() => addItem(props.item)} type="button" className="btn btn-primary">Add to cart</button>)
-    }
-  const { addItem } = useCart()
+  return(qty < 1 ? <p></p> : <button onClick={return_qty} type="button" className="btn btn-primary">Add to cart</button>)
+  }
+  
+
   return ( 
       
     
@@ -35,7 +36,7 @@ export const Main_item = (props) => {
           <form>
           <h6 className="card-title badge-dark">{props.teamname}:<p>{props.description}</p></h6>
           
-            <div>{checker2(props.Qty_available)} <div className="fw-bold">Price: K{props.price}</div></div>{input_enabler2(props.Qty_available)} {btn_enabler2(props.Qty_available)}
+            <div>{checker2(props.Qty_available)} <div className="fw-bold">Price: K{props.price}</div></div> {btn_enabler2(props.Qty_available)}
           </form>
         </div>
       </div>
