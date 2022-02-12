@@ -8,7 +8,7 @@
 #root{
   display: none;
   background: linear-gradient(-45deg, rgb(10, 115, 141), rgb(82, 161, 138), rgb(4, 113, 177), rgb(9, 53, 73));
-  
+  height: 100%;
   margin-top: 4em;
 }
 #loader{
@@ -170,7 +170,33 @@
   
 }
 
+@media screen and (min-width: 630px) and (max-width:5000px){
+  
+  .img_styles{
+    width:8rem;
+  }
+}
 
+@media screen and (min-width: 420px) and (max-width:630px){
+  
+  .img_styles{
+    width:100px;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width:420px){
+  
+  .img_styles{
+    width:50px;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width:360px){
+  
+  .img_styles{
+    width:40px;
+  }
+}
 
 .banners{
   opacity: 0.9;
@@ -186,6 +212,6 @@ body{
 }
 
 .linkstomedias{
-  width:4%;
+  width:5.5%;
   margin-left:1rem;
 }
