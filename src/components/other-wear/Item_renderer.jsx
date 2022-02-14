@@ -16,7 +16,7 @@ const Item_Renderer = (props) => {
   
   const onChangeSearchName = e => {
     const searchcolor = e.target.value;
-    setSearchcolor(searchcolor);
+    setSearchcolor(String(searchcolor).toLowerCase());
   };
 
   const findByName = () => {

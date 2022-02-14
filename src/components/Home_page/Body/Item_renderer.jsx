@@ -17,7 +17,7 @@ const Items = (props) => {
 
   const onChangeSearchName = e => {
     const searchteamName = e.target.value;
-    setSearchteamName(searchteamName);
+    setSearchteamName(String(searchteamName).toLowerCase());
   };
 
   const findByName = () => {

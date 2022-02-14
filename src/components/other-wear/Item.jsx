@@ -4,6 +4,8 @@ import { useCart } from 'react-use-cart';
 
 export const Item = (props) => {
 
+  let size_chosen = "s"
+
   const { addItem } = useCart()
 
   const checker2 = (Qty) => {
@@ -17,8 +19,24 @@ export const Item = (props) => {
     }
   }
 
+  const choose_size_s = () => {
+    size_chosen = "s"
+  }
+
+  const choose_size_m = () => {
+    size_chosen = "m"
+  }
+  const choose_size_l = () => {
+    size_chosen = "l"
+  }
+
   const return_qty = () => {
-    addItem(props.item)
+    let item= Object.assign({}, props.item)
+    
+    item["size_chosen"] = size_chosen;
+    item["teamname"] = props.color;
+    console.warn(item)
+    addItem(item)
   }
 
   const btn_enabler2 = (qty) => {
@@ -36,7 +54,18 @@ export const Item = (props) => {
           <form>
           <h6 className="card-title badge-dark">{props.name}, {props.color}:<p>{props.description}</p></h6>
           
-            <div>{checker2(props.Qty_available)} <div className="fw-bold">Price: K{props.price}</div></div> {btn_enabler2(props.Qty_available)}
+            <div>{checker2(props.Qty_available)} <div className="fw-bold">Price: K{props.price}</div></div>
+            <div className="btn-group gx-2" role="group" aria-label="Basic mixed styles example">
+              <p className="pe-3">Size: </p>
+              <button type="button" onClick={choose_size_s} className="btn btn-danger">Small</button>
+              <button type="button" onClick={choose_size_m} className="btn btn-warning">Medium</button>
+              <button type="button" onClick={choose_size_l} className="btn btn-success">Large</button>
+            </div>
+            
+            
+             {btn_enabler2(props.Qty_available)}
+         
+            
           </form>
         </div>
       </div>
