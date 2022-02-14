@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Banner from './banner';
 import Items from './Body/Item_renderer';
 import Socials_area from './socials_area';
+import Accordion from './accordion';
 
 export default function Home_page(){
 
@@ -11,6 +12,7 @@ export default function Home_page(){
       
         <Banner/>
         <Items/>
+        <Accordion/>
       <Socials_area />
       
     </React.Fragment>);

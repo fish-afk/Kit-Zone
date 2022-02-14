@@ -2,7 +2,7 @@ import React from 'react';
 import { useCart } from 'react-use-cart';
 
 
-export const Other_wear = (props) => {
+export const Item = (props) => {
 
   const { addItem } = useCart()
 
@@ -34,7 +34,7 @@ export const Other_wear = (props) => {
       <img src={props.img_src} className="card-img-top bg-secondary" alt="..."></img>
         <div className="card-body">
           <form>
-          <h6 className="card-title badge-dark">{props.teamname}:<p>{props.description}</p></h6>
+          <h6 className="card-title badge-dark">{props.name}, {props.color}:<p>{props.description}</p></h6>
           
             <div>{checker2(props.Qty_available)} <div className="fw-bold">Price: K{props.price}</div></div> {btn_enabler2(props.Qty_available)}
           </form>

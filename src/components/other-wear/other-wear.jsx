@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
-import Item_renderer from './Item_renderer'
+import Item_Renderer from './Item_renderer'
 import Banner from '../Home_page/banner'
+import Socials_area from "../Home_page/socials_area"
 
 export default class Other_wear extends Component {
   render() {
     return (
       <React.Fragment>
           <Banner/>
-        <Item_renderer/>
+        <Item_Renderer/>
+        <Socials_area/>
+
 
       </React.Fragment>
     )

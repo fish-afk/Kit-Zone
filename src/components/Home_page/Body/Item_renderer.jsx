@@ -13,7 +13,7 @@ const Items = (props) => {
 
   useEffect(() => {
     refreshList();
-  }, []);
+  },[]);
 
   const onChangeSearchName = e => {
     const searchteamName = e.target.value;
@@ -83,7 +83,7 @@ const Items = (props) => {
   return (
     <React.Fragment>
       
-      <div className='container'>
+      <div className='container mt-5'>
         
           <form className="d-flex">
           <input className="form-control me-2 bg-dark text-white" type="text" id="searcher"

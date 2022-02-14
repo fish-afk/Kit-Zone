@@ -35,14 +35,14 @@ export default function Navbar(){
             <span className="navbar-toggler-icon outline-white" id="burger"></span>
           </button>
           <div className="navbar-collapse collapse" id="navmenu">
-            <ul className="navbar-nav ms-auto">
+            <ul className="navbar-nav ms-auto hover-toggle">
               
               <li className="nav-item" onClick={collapse}>
               <Link to="/" type="button" className="nav-link specials px-3 active-link" id="Homes">Home</Link>
               </li>
 
               <li className="nav-item" onClick={collapse}>
-              <Link to="/other-wear" type="button" className="nav-link specials px-3 active-link" id="Homes">Other-wears</Link>
+              <Link to="/otherwears" type="button" className="nav-link specials px-3 active-link" id="Homes">Other-wears</Link>
               </li>
 
               <li className="nav-item" data-bs-toggle="modal" data-bs-target="#email" onClick={collapse}>

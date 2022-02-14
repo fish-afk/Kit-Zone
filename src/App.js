@@ -18,7 +18,7 @@ function App(){
       <NavBar/>
       <Route exact path="/cart" component={Cart}/>
       <Route exact path="/" component={Home_page}/>
-      < Route exact path="/other-wear" component={Other_wear}/>
+      <Route exact path="/otherwears" component={Other_wear}/>
       </CartProvider>
       </div>
     );

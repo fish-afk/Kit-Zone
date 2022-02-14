@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
-import { Main_item, Other_wear } from './Item';
-import KitsDataService from "../fetch_kit_data"
+import {Item} from './Item';
+import KitsDataService from "../fetch_kit_data.js"
 import { useEffect, useState } from 'react';
 
-const Item_renderer = (props) => {
+const Item_Renderer = (props) => {
 
- ;
   const [BALR_kits, set_Balr_kits] = useState([]);
-  const [searchteamName, setSearchteamName ] = useState("");
+  const [searchcolor, setSearchcolor ] = useState("");
 
   useEffect(() => {
     refreshList();
-  }, []);
+  },[]);
 
+
+  
   const onChangeSearchName = e => {
-    const searchteamName = e.target.value;
-    setSearchteamName(searchteamName);
+    const searchcolor = e.target.value;
+    setSearchcolor(searchcolor);
   };
 
   const findByName = () => {
-    find(searchteamName, "teamname")
+    find(searchcolor, "color")
   };
 
  
@@ -61,11 +62,11 @@ const Item_renderer = (props) => {
   return (
     <React.Fragment>
       
-      <div className='container'>
+      <div className='container mt-5'>
         
           <form className="d-flex">
           <input className="form-control me-2 bg-dark text-white" type="text" id="searcher"
-            value={searchteamName} onChange={onChangeSearchName} placeholder="Search by color..."></input>
+            value={searchcolor} onChange={onChangeSearchName} placeholder="Search by color..."></input>
           
           <button className="btn btn-outline-light bg-dark" type="button" onClick={findByName}>Search</button>
         </form>
@@ -81,8 +82,8 @@ const Item_renderer = (props) => {
       
              
       {BALR_kits.map(kit => 
-            <Other_wear key={kit._id} name={kit.name} id={kit._id} img_src={kit.img_src} Qty_available={kit.qty} 
-            description={kit.description} price={kit.price} teamname={kit.teamname}/>
+            <Item key={kit._id} name={kit.name} id={kit._id} img_src={kit.img_src} Qty_available={kit.qty} 
+            description={kit.description} price={kit.price} color={kit.color} item={kit}/>
           )}
       
 
@@ -99,4 +100,4 @@ const Item_renderer = (props) => {
 
 }
 
-export default Item_renderer;
+export default Item_Renderer;
