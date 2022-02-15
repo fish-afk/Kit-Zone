@@ -44,15 +44,16 @@
   }
 }
 
-.specials:hover{
-  text-decoration: none;
-  color: rgb(56, 0, 0);
-}
+
 .specials{
   
   font-size: 1.2em;
   color: white;
-  font-family: monospace;
+  font-family: Lato, Hel, Arial, Helvetica, sans-serif;
+}
+.specials:hover{
+  
+  color:rgb(198, 201, 12);
 }
 
 #banner-text{

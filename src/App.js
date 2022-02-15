@@ -9,6 +9,7 @@ import Home_page from './components/Home_page/Home_page';
 import { MemoryRouter, Route, Router, Routes } from 'react-router-dom';
 import Other_wear from './components/other-wear/other-wear';
 import {CartProvider} from "react-use-cart"
+import 'react-loading-skeleton/dist/skeleton.css'
 
 function App(){
 

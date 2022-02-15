@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Item} from './Item';
 import KitsDataService from "../fetch_kit_data.js"
 import { useEffect, useState } from 'react';
+import Skeleton from 'react-loading-skeleton'
 
 const Item_Renderer = (props) => {
 
@@ -86,7 +87,7 @@ const Item_Renderer = (props) => {
       
              
       {BALR_kits.map(kit => 
-            <Item key={kit._id} name={kit.name} id={kit._id} img_src={kit.img_src} Qty_available={kit.qty} 
+            <Item key={kit._id} name={kit.name} id={kit._id} img_src={kit.img_src || <Skeleton variant="rect" amount={1}/>} Qty_available={kit.qty} 
             description={kit.description} price={kit.price} color={kit.color} item={kit}/>
           )}
       
