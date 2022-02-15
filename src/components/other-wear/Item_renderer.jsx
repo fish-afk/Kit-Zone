@@ -23,6 +23,9 @@ const Item_Renderer = (props) => {
     find(searchcolor, "color")
   };
 
+  const clear = () => {
+    find("", "teamname")
+  };
  
 
   const retrieve_balr_kits = () => {
@@ -69,6 +72,7 @@ const Item_Renderer = (props) => {
             value={searchcolor} onChange={onChangeSearchName} placeholder="Search by color..."></input>
           
           <button className="btn btn-outline-light bg-dark" type="button" onClick={findByName}>Search</button>
+          <button className="btn btn-outline-light bg-dark" type="button" onClick={clear}>Reset</button>
         </form>
         
       </div>

@@ -1,5 +1,7 @@
 import React from 'react';
 import { useCart } from 'react-use-cart';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 
 export const Item = (props) => {
@@ -19,17 +21,12 @@ export const Item = (props) => {
     }
   }
 
-  const choose_size_s = () => {
-    size_chosen = "s"
+  const choose_sizes = () => {
+    size_chosen = document.getElementById("dropper").value;
+
   }
 
-  const choose_size_m = () => {
-    size_chosen = "m"
-  }
-  const choose_size_l = () => {
-    size_chosen = "l"
-  }
-
+  
   const return_qty = () => {
     let item= Object.assign({}, props.item)
     
@@ -43,6 +40,11 @@ export const Item = (props) => {
   return(qty < 1 ? <p></p> : <button onClick={return_qty} type="button" className="btn btn-primary">Add to cart</button>)
   }
   
+  const options = [
+    'small', 'Medium', 'Large', 'X-large', 'XX-large'
+  ];
+
+  let defaultopt = options[0];
 
   return ( 
       
@@ -55,16 +57,9 @@ export const Item = (props) => {
           <h6 className="card-title badge-dark">{props.name}, {props.color}:<p>{props.description}</p></h6>
           
             <div>{checker2(props.Qty_available)} <div className="fw-bold">Price: K{props.price}</div></div>
-            <div className="btn-group gx-2" role="group" aria-label="Basic mixed styles example">
-              <p className="pe-3">Size: </p>
-              <button type="button" onClick={choose_size_s} className="btn btn-danger">Small</button>
-              <button type="button" onClick={choose_size_m} className="btn btn-warning">Medium</button>
-              <button type="button" onClick={choose_size_l} className="btn btn-success">Large</button>
-            </div>
+            {btn_enabler2(props.Qty_available)}
+            <Dropdown id="dropper" className="bg-dark text-white" onChange={choose_sizes} options={options} value={defaultopt} placeholder="Select a size" />
             
-            
-             {btn_enabler2(props.Qty_available)}
-         
             
           </form>
         </div>

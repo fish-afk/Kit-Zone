@@ -12,6 +12,7 @@ const Items = (props) => {
   const [searchteamName, setSearchteamName ] = useState("");
 
   useEffect(() => {
+    
     refreshList();
   },[]);
 
@@ -22,6 +23,11 @@ const Items = (props) => {
 
   const findByName = () => {
     find(searchteamName, "teamname")
+  };
+
+  const clear = () => {
+    document.getElementById("searcher").value = "";
+    find("", "teamname")
   };
 
   const retrieve_soccer_kits = () => {
@@ -90,6 +96,7 @@ const Items = (props) => {
             value={searchteamName} onChange={onChangeSearchName} placeholder="Search by team name..."></input>
           
           <button className="btn btn-outline-light bg-dark" type="button" onClick={findByName}>Search</button>
+          <button className="btn btn-outline-light bg-dark" type="button" onClick={clear}>Reset</button>
         </form>
         
       </div>

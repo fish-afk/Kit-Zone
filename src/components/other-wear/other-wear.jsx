@@ -10,6 +10,7 @@ export default class Other_wear extends Component {
           <Banner/>
         <Item_Renderer/>
         <Socials_area/>
+        
 
 
       </React.Fragment>
