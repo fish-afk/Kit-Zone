@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Item from './Item';
 import KitsDataService from "../fetch_kit_data.js"
 import { useEffect, useState } from 'react';
-import Skeleton from 'react-loading-skeleton'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import Loading from './loading_profiles'
 
 const Item_Renderer = (props) => {
@@ -68,7 +68,7 @@ const Item_Renderer = (props) => {
 
   const searcher = () => {
     if(BALR_kits.length == 0){
-     return(<div className='conttainer text-white fs-1 fw-bold'><img alt="no results" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXQpJnnPzhDYwOTr9S8quxVfMhbjcWiD9Haw&usqp=CAU"></img>
+     return(<div className='container text-white fs-1 fw-bold'><img alt="no results" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXQpJnnPzhDYwOTr9S8quxVfMhbjcWiD9Haw&usqp=CAU"></img>
      <h1>No search results found</h1></div>);
  }else{
      return(BALR_kits.map(kit => (
@@ -81,7 +81,9 @@ const Item_Renderer = (props) => {
   let loading_Profiles = [];
 
   for(let i = 0; i < 8 ; i++){
-    loading_Profiles.push(<Skeleton amount={8} height={250} width={200} key={i} id={i}/>)
+    loading_Profiles.push(<SkeletonTheme animation="wave" baseColor="#ffffff" highlightColor="#8888"><Skeleton amount={1} height={200} key={i} id={i}/>
+     <Skeleton /><Skeleton /> <Skeleton />
+    </SkeletonTheme>)
   }
 
   if(isLoading === true){

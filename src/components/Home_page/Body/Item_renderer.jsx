@@ -3,13 +3,16 @@ import { Best_item } from './best_Item';
 import { Main_item } from './Main_item';
 import KitsDataService from "../../fetch_kit_data";
 import { useEffect, useState } from 'react';
-
+import Loading from '../../other-wear/loading_profiles';
+import Skeleton, {SkeletonTheme } from 'react-loading-skeleton'
 
 const Items = (props) => {
 
   const [soccer_kits, set_soccer_kits] = useState([]);
   const [F1_kits, set_F1_kits] = useState([]);
   const [searchteamName, setSearchteamName ] = useState("");
+  const [isLoading1, Setisloading1] = useState(true);
+  const [isLoading2, Setisloading2] = useState(true);
 
   useEffect(() => {
     
@@ -30,12 +33,13 @@ const Items = (props) => {
     find("", "teamname")
   };
 
-  const retrieve_soccer_kits = () => {
-    KitsDataService.getAllkits_for_a_specific_collection("other_kits")
+  const retrieve_soccer_kits = async () => {
+    Setisloading1(true)
+    await KitsDataService.getAllkits_for_a_specific_collection("other_kits")
       .then(response => {
         console.log(response.data);
         set_soccer_kits(response.data.kits);
-        
+    Setisloading1(false);
         
       }).then(
         console.log(soccer_kits)
@@ -46,12 +50,13 @@ const Items = (props) => {
       });
   };
 
-  const retrieve_f1_kits = () => {
-    KitsDataService.getAllkits_for_a_specific_collection("F1_kits")
+  const retrieve_f1_kits = async () => {
+    Setisloading2(true)
+    await KitsDataService.getAllkits_for_a_specific_collection("F1_kits")
       .then(response => {
         console.log(response.data);
         set_F1_kits(response.data.kits);
-        
+    Setisloading2(false);
         
       }).then(
         console.log(F1_kits)
@@ -68,11 +73,8 @@ const Items = (props) => {
     KitsDataService.find(query, by)
       .then(response => {
         console.log(response.data);
-        if(response.data.collection_name == "other_kits"){
-          set_soccer_kits(response.data.kits);
-        }else if(response.data.collection_name == "F1_kits"){
-          set_F1_kits(response.data.kits);
-        }
+        set_soccer_kits(response.data.kits);
+        
         
       })
       .catch(e => {
@@ -85,6 +87,52 @@ const Items = (props) => {
      retrieve_f1_kits();
      
   };
+
+  const searcher = () => {
+    if(soccer_kits.length == 0 || F1_kits.length == 0){
+     return(<div className='container text-white fs-1 fw-bold'><img alt="no results" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXQpJnnPzhDYwOTr9S8quxVfMhbjcWiD9Haw&usqp=CAU"></img>
+     <h1>No search results found</h1></div>);
+    }else{
+        return(soccer_kits.map(kit => (
+          <Main_item key={kit._id} name={kit.name} id={kit._id} img_src={kit.img_src} Qty_available={kit.qty} 
+          description={kit.description} price={kit.price} teamname={kit.teamname} item={kit}/>
+    )));
+    }
+    }
+
+ let loading_Profiles = [];
+
+  for(let i = 0; i < 8 ; i++){
+    loading_Profiles.push(<SkeletonTheme animation="wave" baseColor="#ffffff" highlightColor="#8888"><Skeleton amount={1} height={200} key={i} id={i}/>
+    <Skeleton /><Skeleton /> <Skeleton />
+   </SkeletonTheme>)
+  }
+
+  if(isLoading1 === true){
+    return(
+      <div className='container bg-dark banners mt-3 kit-place'>
+      <div className='row text-center pb-5 inner-div'>
+      <header className='badge badge-warning'>Balr clothing</header>
+      
+      {loading_Profiles.map((profile,index) => <Loading item={profile} key={index}/>)}
+    
+      </div>
+      </div>
+    )
+  }
+
+  if(isLoading2 === true){
+    return(
+      <div className='container bg-dark banners mt-3 kit-place'>
+      <div className='row text-center pb-5 inner-div'>
+      <header className='badge badge-warning'>Balr clothing</header>
+      
+      {loading_Profiles.map((profile,index) => <Loading item={profile} key={index}/>)}
+    
+      </div>
+      </div>
+    )
+  }
 
   return (
     <React.Fragment>
@@ -109,10 +157,7 @@ const Items = (props) => {
       
       
              
-      {soccer_kits.map((kit, index) => 
-            <Main_item key={index} name={kit.name} id={index} img_src={kit.img_src} Qty_available={kit.qty} 
-            description={kit.description} price={kit.price} item={kit} teamname={kit.teamname}/>
-          )}
+      {searcher()}
       
 
       </div>

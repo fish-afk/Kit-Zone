@@ -41,7 +41,7 @@ export const Best_item = (props) => {
     }
     
     item["size_chosen"] = size_chosen();
-    item["teamname"] = props.color;
+    
     console.warn(item)
     addItem(item)
   }
@@ -51,12 +51,12 @@ export const Best_item = (props) => {
   }
   
 
-  return ( 
+  if(props){return ( 
       
     
       <div className='col gy-3'>
       <div className="card cards-styles" id="hovering">
-      <img src={props.img_src} className="card-img-top bg-secondary" alt="..."></img>
+      <img src={props.img_src} className="card-img-top bg-secondary" alt="Loading..."></img>
         <div className="card-body">
           <form>
           <h6 className="card-title badge-dark">{props.teamname}:<p>{props.description}</p></h6>
@@ -79,4 +79,6 @@ export const Best_item = (props) => {
    
       
     );
+  }
+  return null;
 };

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Laoding
+export default function Loading
 (props) {
   return (
     

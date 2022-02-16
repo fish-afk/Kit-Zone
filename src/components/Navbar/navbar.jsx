@@ -30,26 +30,26 @@ export default function Navbar(){
         <div>
         <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand ml-3" id="Brand">Kit-Zone </a>
+          <a className="navbar-brand ml-3" id="Brand">Kit-Zone</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
             <span className="navbar-toggler-icon outline-white" id="burger"></span>
           </button>
           <div className="navbar-collapse collapse" id="navmenu">
             <ul className="navbar-nav ms-auto hover-toggle">
               
-              <li className="nav-item" onClick={collapse}>
+              <li className="specials" onClick={collapse}>
               <Link to="/" type="button" className="nav-link specials px-3 active-link" id="Homes">Home</Link>
               </li>
 
-              <li className="nav-item" onClick={collapse}>
+              <li className="specials" onClick={collapse}>
               <Link to="/otherwears" type="button" className="nav-link specials px-3 active-link" id="Homes">Other-wears</Link>
               </li>
 
-              <li className="nav-item" data-bs-toggle="modal" data-bs-target="#email" onClick={collapse}>
+              <li className="specials" data-bs-toggle="modal" data-bs-target="#email" onClick={collapse}>
                 <a className="nav-link specials px-3" id="emailing" type="button" data-bs-toggle="modal" data-bs-target="#email">Email-us</a>
               </li>
               
-              <li className="nav-item" onClick={collapse}>
+              <li className="specials" onClick={collapse}>
                 <a className="nav-link specials px-3" onClick={go_to_home} href="#socials-area">Socials</a>
               </li>
 

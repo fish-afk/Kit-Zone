@@ -12,8 +12,11 @@
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+  height: 100%;
   
 }
+
+
 #loader{
   height: 100vh;
   width: 100vw;
@@ -44,16 +47,17 @@
   }
 }
 
+.navbar .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  
+  color: #f30e0e;
+  font-style: italic;
+  text-decoration: underline;
+}
 
 .specials{
   
-  font-size: 1.2em;
-  color: white;
+  font-size: 1.1em;
   font-family: Lato, Hel, Arial, Helvetica, sans-serif;
-}
-.specials:hover{
-  
-  color:rgb(198, 201, 12);
 }
 
 #banner-text{
@@ -73,7 +77,9 @@
   max-width: 30%;
 }
 
-
+.bi:hover{
+  background: linear-gradient(-45deg, rgb(10, 115, 141), rgb(82, 161, 138), rgb(4, 113, 177), rgb(9, 53, 73)) no-repeat center center fixed;
+}
 
 #socials_area{
   position: relative;

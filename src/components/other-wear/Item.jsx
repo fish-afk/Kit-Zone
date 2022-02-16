@@ -58,7 +58,7 @@ const Item = (props) => {
       
       <div className='col gy-3'>
       <div className="card cards-styles" id="hovering">
-      <img src={props.img_src} className="card-img-top bg-secondary" alt="..."></img>
+      <img src={props.img_src} className="card-img-top bg-secondary" alt="Loading..."></img>
         <div className="card-body bg-dark text-white">
           <form>
           <h6 className="card-title badge-dark">{props.name}, {props.color}:<p>{props.description}</p></h6>
