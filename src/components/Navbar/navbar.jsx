@@ -45,6 +45,10 @@ export default function Navbar(){
               <Link to="/otherwears" type="button" className="nav-link specials px-3 active-link" id="Homes">Other-wears</Link>
               </li>
 
+              <li className="specials" onClick={collapse}>
+              <Link to="/custom-kits" type="button" className="nav-link specials px-3 active-link" id="Homes">Custom kits</Link>
+              </li>
+
               <li className="specials" data-bs-toggle="modal" data-bs-target="#email" onClick={collapse}>
                 <a className="nav-link specials px-3" id="emailing" type="button" data-bs-toggle="modal" data-bs-target="#email">Email-us</a>
               </li>
