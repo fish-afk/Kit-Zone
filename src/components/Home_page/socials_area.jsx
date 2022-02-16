@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 
 
 export default class Socials_area extends Component {
+
+  get_Date(){
+    let currentTime = new Date();
+    return (currentTime.getFullYear());
+  }
+  
   render() {
     return (
 
@@ -26,10 +32,16 @@ export default class Socials_area extends Component {
 							</div>
 						<div className="text-center mt-4">
 
-              <a className="fs-5 fw-bold font-monospace text-white">&#9400; Kitzone Sites 2022</a>
+              <a className="fw-bold font-lato specials text-white" style={{fontSize:"1.1rem", textDecoration:"none",
+            }}>&#169; Copyright {this.get_Date()} Kitzone Sites - All Rights Reserved.</a>
             </div>
+            <div className="container-fluid bg-dark"><span>...</span></div>
+                      <div className="container-fluid bg-dark"><span>...</span></div>
 
                       </div>
+                      
+                      
+                      
 </div>
 
     )

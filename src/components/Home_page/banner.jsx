@@ -5,13 +5,14 @@ export default class Banner extends Component {
     return (
 
       <React.Fragment>
-    <div className='container bg-dark fst-italic'>
+    <div className='container bg-dark fst-italic mt-5'>
     
     
 
       </div>
+      <br/>
       
-      <div className='container bg-dark fs-5 banners'><p className=" align-center text-info text-center" id="banner-text">Get your favourite kits for the <i>best</i> prices!</p></div>
+      <div className='container bg-dark fs-5 banners'><p className=" align-center text-info text-center" id="banner-text">{this.props.title}</p></div>
 
       </React.Fragment>
         

@@ -11,8 +11,7 @@ const Items = (props) => {
   const [soccer_kits, set_soccer_kits] = useState([]);
   const [F1_kits, set_F1_kits] = useState([]);
   const [searchteamName, setSearchteamName ] = useState("");
-  const [isLoading1, Setisloading1] = useState(true);
-  const [isLoading2, Setisloading2] = useState(true);
+  const [isLoading, setisLoading] = useState(true);
 
   useEffect(() => {
     
@@ -34,12 +33,12 @@ const Items = (props) => {
   };
 
   const retrieve_soccer_kits = async () => {
-    Setisloading1(true)
+    setisLoading(true)
     await KitsDataService.getAllkits_for_a_specific_collection("other_kits")
       .then(response => {
         console.log(response.data);
         set_soccer_kits(response.data.kits);
-    Setisloading1(false);
+    setisLoading(false);
         
       }).then(
         console.log(soccer_kits)
@@ -51,12 +50,10 @@ const Items = (props) => {
   };
 
   const retrieve_f1_kits = async () => {
-    Setisloading2(true)
     await KitsDataService.getAllkits_for_a_specific_collection("F1_kits")
       .then(response => {
         console.log(response.data);
         set_F1_kits(response.data.kits);
-    Setisloading2(false);
         
       }).then(
         console.log(F1_kits)
@@ -108,36 +105,38 @@ const Items = (props) => {
    </SkeletonTheme>)
   }
 
-  if(isLoading1 === true){
+  if(isLoading === true){
     return(
+      <React.Fragment>
       <div className='container bg-dark banners mt-3 kit-place'>
       <div className='row text-center pb-5 inner-div'>
-      <header className='badge badge-warning'>Balr clothing</header>
+      <header className='badge badge-warning'>soccer kits available</header>
       
       {loading_Profiles.map((profile,index) => <Loading item={profile} key={index}/>)}
     
       </div>
       </div>
+
+
+    <div className='container bg-dark banners mt-3 kit-place'>
+    <div className='row text-center pb-5 inner-div'>
+    <header className='badge badge-warning'>F1 kits available</header>
+    
+    {loading_Profiles.map((profile,index) => <Loading item={profile} key={index}/>)}
+  
+    </div>
+    </div>
+    </React.Fragment>
+ 
     )
   }
 
-  if(isLoading2 === true){
-    return(
-      <div className='container bg-dark banners mt-3 kit-place'>
-      <div className='row text-center pb-5 inner-div'>
-      <header className='badge badge-warning'>Balr clothing</header>
-      
-      {loading_Profiles.map((profile,index) => <Loading item={profile} key={index}/>)}
-    
-      </div>
-      </div>
-    )
-  }
+  
 
   return (
     <React.Fragment>
       
-      <div className='container mt-5'>
+      <div className='container mt-2'>
         
           <form className="d-flex">
           <input className="form-control me-2 bg-dark text-white" type="text" id="searcher"

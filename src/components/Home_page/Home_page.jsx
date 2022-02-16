@@ -6,15 +6,16 @@ import Accordion from './accordion';
 
 export default function Home_page(){
 
-  
-    return (<React.Fragment>
-      
-      
-        <Banner/>
+    return (
+
+    <React.Fragment>
+
+        <Banner title="Get your favourite kits for the best prices!"/>
         <Items/>
         <Accordion/>
-      <Socials_area />
+        <Socials_area />
       
-    </React.Fragment>);
+    </React.Fragment>
+    );
   
 }

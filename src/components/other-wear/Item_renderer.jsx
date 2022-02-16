@@ -104,7 +104,7 @@ const Item_Renderer = (props) => {
   return (
     <React.Fragment>
       
-      <div className='container mt-5'>
+      <div className='container mt-2'>
         
           <form className="d-flex">
           <input className="form-control me-2 bg-dark text-white" type="text" id="searcher"

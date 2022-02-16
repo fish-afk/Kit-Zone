@@ -17,10 +17,6 @@ export default function Navbar(){
     emptyCart,
   } = useCart();
 
-  const go_to_home = () => {
-    document.getElementById("Homes").click();
-  }
-
   const collapse = () => {
     document.getElementById("burger").click();
   }
@@ -35,7 +31,7 @@ export default function Navbar(){
             <span className="navbar-toggler-icon outline-white" id="burger"></span>
           </button>
           <div className="navbar-collapse collapse" id="navmenu">
-            <ul className="navbar-nav ms-auto hover-toggle">
+            <ul className="navbar-nav ms-auto hover-toggle smooth-scroll">
               
               <li className="specials" onClick={collapse}>
               <Link to="/" type="button" className="nav-link specials px-3 active-link" id="Homes">Home</Link>
@@ -54,7 +50,7 @@ export default function Navbar(){
               </li>
               
               <li className="specials" onClick={collapse}>
-                <a className="nav-link specials px-3" onClick={go_to_home} href="#socials-area">Socials</a>
+                <a className="nav-link specials px-3" id="smoothing" href="#socials-area">Socials</a>
               </li>
 
               <Link to="/cart" type="button" className="nav-link specials px-3">

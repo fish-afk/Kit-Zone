@@ -2,7 +2,21 @@ import React, { Component } from 'react';
 import { send } from '@emailjs/browser';
 
 export default class Modal extends Component{
+    static get_time(){
 
+     let time = localStorage.getItem("time");
+     let currentTime = new Date();
+     let hour = currentTime.getHours();
+
+     if(time == undefined){
+       
+       
+       localStorage.setItem("time", hour);
+     }else{
+       console.log(hour - parseInt(time))
+       return( hour - parseInt(time))
+     }
+    }
     async send_email(){
       
       const close_btn = document.getElementById("closeit");
@@ -31,7 +45,7 @@ export default class Modal extends Component{
        }
       if(params.from_name.length < 3 || params.message.length < 50){
 
-        window.alert("-> name should be atleast 3 characters\n-> Message should be at least 50 charachters long")
+        window.alert("-> name should be atleast 3 characters\n-> Message should be at least 50 characters long")
 
       }else{
         cooldown()
@@ -40,7 +54,7 @@ export default class Modal extends Component{
          if(response.status == 200){
           cooldown()
           close_btn.click()
-           alert("Email has been sent successfully");
+           alert("Email has been sent successfully,\nThank you for your feedback!");
             
           
 

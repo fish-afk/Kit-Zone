@@ -8,7 +8,7 @@ export default class Other_wear extends Component {
   render() {
     return (
       <React.Fragment>
-          <Banner/>
+          <Banner title="Other amazing fits available..."/>
         <Item_Renderer/>
         
        
