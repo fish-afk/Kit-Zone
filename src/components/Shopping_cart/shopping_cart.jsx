@@ -15,7 +15,10 @@ export default function Cart() {
       emptyCart,
     } = useCart();
 
-    if(isEmpty) {return(<div className="conatiner row bg-white text-center fw-bold fs-1 mt-5"><h1 className="text-danger mt-5">Your Cart is empty...</h1>
+    
+
+    if((isEmpty)) 
+    {return(<div className="conatiner row bg-white text-center fw-bold fs-1 mt-5"><h1 className="text-danger mt-5">Your Cart is empty...</h1>
     <img className="container" src="https://store.printville.net/content/images/empty-cart.png" style={{width:"25rem"}}></img>
     <h1 className="text-success fst-italic">Go ahead, <a href="/">fill it up</a> : )</h1></div>);}
     console.warn(items)
@@ -65,6 +68,9 @@ export default function Cart() {
 
                         </tr>)
                     })}
+                    <tr>
+
+                    </tr>
                     </tbody>
                 </table>
                 <button className="btn btn-warning fw-bold">Proceed to checkout</button>

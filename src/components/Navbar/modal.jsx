@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { send } from '@emailjs/browser';
 
 export default class Modal extends Component{
-    static get_time(){
+    get_time(){
 
      let time = localStorage.getItem("time");
      let currentTime = new Date();
@@ -10,24 +10,37 @@ export default class Modal extends Component{
 
      if(time == undefined){
        
-       
        localStorage.setItem("time", hour);
+       return "First_time";
+
      }else{
        console.log(hour - parseInt(time))
        return( hour - parseInt(time))
      }
+
+     
     }
-    async send_email(){
+
+    cooldown=()=>{
+     
+      let new_time = new Date();
+      if(this.get_time() == "First_time"){
+        return false;
+      }else{
+        if(this.get_time() <= 3){
+          return true;
+        }else if(this.get_time() > 3){
+          localStorage.setItem("time", String(new_time.getHours()));
+          return false;
+        }
+      }
+
+    }
+
+
+    async send_email(e){
       
       const close_btn = document.getElementById("closeit");
-      
-      const cooldown=()=>{
-        const btn = document.getElementById("send-btn");
-        btn.disabled = true;
-        setTimeout(()=>{
-          btn.disabled = false;
-          console.log('Button Activated')}, 50000)
-      }
 
       const KEYS ={
         service_key: "service_8h3v6ew",
@@ -48,11 +61,11 @@ export default class Modal extends Component{
         window.alert("-> name should be atleast 3 characters\n-> Message should be at least 50 characters long")
 
       }else{
-        cooldown()
+        
         await send(KEYS.service_key, KEYS.template_key, params, KEYS.user_key ).then((response) => {
          
          if(response.status == 200){
-          cooldown()
+          
           close_btn.click()
            alert("Email has been sent successfully,\nThank you for your feedback!");
             
@@ -69,9 +82,13 @@ export default class Modal extends Component{
           alert("An error occured")
         })
       }
+      window.location.reload();
+      
     }
     render(){
+      
         return(
+          <React.Fragment>
             <div className="modal fade" id="email" aria-labelledby="emailModal" aria-hidden="true">
             <div className="modal-dialog">
               <div className="modal-content">
@@ -89,15 +106,25 @@ export default class Modal extends Component{
                       <label className="col-form-label">Message:</label>
                       <textarea className="form-control" id="message-text"></textarea>
                     </div>
+                    <div className="text-center">
+                      <h5>You can only send 1 email per 12 hours...</h5>
+                    </div>
                   </form>
-                </div>
-                <div className="modal-footer">
+                  <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" id="closeit">Close</button>
-                  <button type="button" onClick={this.send_email} id="send-btn" className="btn btn-primary">Send Email</button>
+                  <button type="submit" disabled={this.cooldown()} onClick={this.send_email} id="send-btn" className="btn btn-primary">Send Email</button>
+                  
+                  </div>
                 </div>
+                
               </div>
             </div>
+            
           </div>
+          
+          </React.Fragment>
         );
+
+      
     }
 }
