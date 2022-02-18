@@ -7,12 +7,13 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/css/bootstrap-grid.css"
 import { BrowserRouter } from 'react-router-dom';
 import { CartProvider } from 'react-use-cart';
+import { UserContextProvider } from "./Usercontext/usercontext";
 
 
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-    <BrowserRouter><App /></BrowserRouter>,document.getElementById('root')
+    <UserContextProvider><BrowserRouter><App /></BrowserRouter></UserContextProvider>,document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -33,7 +33,7 @@ export default class Socials_area extends Component {
 						<div className="text-center mt-4">
 
               <a className="fw-bold font-lato specials text-white" style={{fontSize:"1.1rem", textDecoration:"none",
-            }}>&#169; Copyright {this.get_Date()} Kitzone Sites - All Rights Reserved.</a>
+            }}>&#169; {this.get_Date()} Kitzone  - All Rights Reserved.</a>
             </div>
             <div className="container-fluid bg-dark"><span>...</span></div>
                       <div className="container-fluid bg-dark"><span>...</span></div>

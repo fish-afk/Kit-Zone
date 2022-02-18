@@ -1,7 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
-import React, { useState, useEffect } from 'react';
-import { Component } from 'react/cjs/react.production.min';
+import React from 'react';
 import  NavBar  from "./components/Navbar/navbar"
 import react from 'react';
 import Cart from './components/Shopping_cart/shopping_cart';
@@ -10,8 +9,11 @@ import { MemoryRouter, Route, Router, Routes } from 'react-router-dom';
 import Other_wear from './components/other-wear/other-wear';
 import {CartProvider} from "react-use-cart"
 import Custom_kits from "./components/Custom_kits/Final"
+import SignInpage from './components/SignInpage';
 
 function App(){
+
+  
 
   return(
       <div>
@@ -21,6 +23,8 @@ function App(){
       <Route exact path="/" component={Home_page}/>
       <Route exact path="/otherwears" component={Other_wear}/>
       <Route exact path="/custom-kits" component={Custom_kits}/>
+      <Route exact path="/auths" component={SignInpage}/>
+      
       </CartProvider>
       </div>
     );

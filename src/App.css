@@ -13,6 +13,7 @@
   background-size: cover;
   -o-background-size: cover;
   height: 100%;
+  font-family:  arial, helvetica, sans-serif;
   
 }
 
@@ -52,7 +53,7 @@ html {
 
 .navbar .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   
-  color: #f30e0e;
+  color: #7a7373;
   font-style: italic;
   text-decoration: underline;
 }
@@ -60,11 +61,15 @@ html {
 .specials{
   
   font-size: 1.1em;
-  font-family: Lato, Hel, Arial, Helvetica, sans-serif;
+  font-family: Lato, Arial;
+  text-decoration: none;
+  color:rgb(226, 222, 222);
+  
 }
 
 #banner-text{
   color: rgb(255, 255, 255);
+  font-family: Sans-Serif;
 }
 
 #hovering:hover{
@@ -225,3 +230,45 @@ body{
   margin-left:1rem;
 }
 
+.button {
+  /** Font Style **/
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size:14px;
+	color:#fff;
+  text-decoration:none;
+	font-weight:bold;
+	text-shadow:rgba(0, 0, 0, 0.30) 0 -1.25px 0;
+  
+  /** Button Style **/ 
+  display:-moz-inline-stack;
+  -webkit-font-smoothing:antialiased;
+	display:inline-block;
+	vertical-align:middle;
+	vertical-align:auto;
+	zoom:1;
+	border:1px solid #13619f;
+	background: #2371b7;
+	padding: 0.5em 0.5em;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	-ms-border-radius:3px;
+	-o-border-radius:3px;
+	border-radius:3px;
+	-webkit-box-shadow:rgba(255, 255, 255, 0.3) 0 1px 0, inset rgba(255, 255, 255, 0.3) 0 1px 0;
+	-moz-box-shadow:rgba(255, 255, 255, 0.3) 0 1px 0, inset rgba(255, 255, 255, 0.3) 0 1px 0;
+	box-shadow:rgba(255, 255, 255, 0.3) 0 1px 0, inset rgba(255, 255, 255, 0.3) 0 1px 0;
+}
+
+/** Active State Style **/
+.button:active {
+	border-color:#083559;
+	-webkit-box-shadow:rgba(255, 255, 255, 0.2) 0 1px 0, inset rgba(0, 0, 0, 0.25) 0 1px 4px;
+	-moz-box-shadow:rgba(255, 255, 255, 0.2) 0 1px 0, inset rgba(0, 0, 0, 0.25) 0 1px 4px;
+	box-shadow:rgba(255, 255, 255, 0.2) 0 1px 0, inset rgba(0, 0, 0, 0.25) 0 1px 4px;
+}
+
+.login-color{
+  background: url("https://wallpaperaccess.com/full/1567666.png");
+  width: 100%;
+  height: 100%;
+}

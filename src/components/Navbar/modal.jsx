@@ -8,7 +8,7 @@ export default class Modal extends Component{
      let currentTime = new Date();
      let hour = currentTime.getHours();
 
-     if(time == undefined){
+     if(time == undefined || hour - time < 0){
        
        localStorage.setItem("time", hour);
        return "First_time";
@@ -27,7 +27,7 @@ export default class Modal extends Component{
       if(this.get_time() == "First_time"){
         return false;
       }else{
-        if(this.get_time() <= 3){
+        if(this.get_time() <= 3 && this.get_time() >= 0){
           return true;
         }else if(this.get_time() > 3){
           localStorage.setItem("time", String(new_time.getHours()));
@@ -67,8 +67,9 @@ export default class Modal extends Component{
          if(response.status == 200){
           
           close_btn.click()
+           window.location.reload();
            alert("Email has been sent successfully,\nThank you for your feedback!");
-            
+
           
 
          }else{
@@ -82,7 +83,7 @@ export default class Modal extends Component{
           alert("An error occured")
         })
       }
-      window.location.reload();
+      
       
     }
     render(){
@@ -107,7 +108,7 @@ export default class Modal extends Component{
                       <textarea className="form-control" id="message-text"></textarea>
                     </div>
                     <div className="text-center">
-                      <h5>You can only send 1 email per 12 hours...</h5>
+                      <h5>You can only send 1 email every 3 hours...</h5>
                     </div>
                   </form>
                   <div className="modal-footer">

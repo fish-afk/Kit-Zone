@@ -3,8 +3,12 @@ import Modal from './modal';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { useCart } from 'react-use-cart';
 import {useEffect, useState} from "react"
+import {analytics} from "../../Firebase/firebase"
+import {signInWithPopup, signOut, GoogleAuthProvider} from "firebase/auth";
+
 
 export default function Navbar(){  
+
 
   const {
     isEmpty,
@@ -17,11 +21,11 @@ export default function Navbar(){
     emptyCart,
   } = useCart();
 
+  
   const collapse = () => {
     document.getElementById("burger").click();
   }
-  
-    
+
     return(
         <div>
         <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -55,7 +59,7 @@ export default function Navbar(){
 
               <Link to="/cart" type="button" className="nav-link specials px-3">
 
-              <button type="button" className="btn btn-secondary position-relative" onClick={collapse}>
+              <button type="button" className="button position-relative" onClick={collapse}>
                 Go to Cart
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                      
@@ -64,7 +68,16 @@ export default function Navbar(){
               </button>
 
               </Link>
-              
+
+              <Link to="/auths" type="button" className="nav-link specials px-3">
+              <button type="button" className="button position-relative" onClick={collapse}>
+                Account
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                     
+                   
+                  </span>
+              </button>
+              </Link>
             </ul>
            
           </div>
