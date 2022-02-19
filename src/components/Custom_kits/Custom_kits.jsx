@@ -1,12 +1,21 @@
 import React from 'react'
+import {useState, useEffect} from 'react'
 import Socials_area from "../Home_page/socials_area"
-
+import { useUserContext } from "../../Usercontext/usercontext";
+import Customer_details from "../customer_details";
+import Modal from "../Navbar/modal";
 
 export default function Custom_kits() {
-  let kit = {};
-  
+  const { user } = useUserContext();
 
-  const submit_details = () => {
+  let kit = {};
+
+  useEffect(() => {
+    document.getElementById("next").disabled = true
+  }, [])
+
+  const submit_details = (e) => {
+    e.preventDefault();
     let sport = document.getElementById("sport").value;
     let teamname = document.getElementById("teamname").value;
     let type = document.getElementById("type").value;
@@ -14,23 +23,40 @@ export default function Custom_kits() {
     let number = document.getElementById("number").value;
     let description= document.getElementById("description").value;
 
-    const name_refresh = () => {return(name == undefined ? "" : name)};
-    const number_refresh = () => {return(number == undefined ? "" : number)};
+    if(user.email != undefined) {
+      
+            if(sport !== "" && type !== "" && teamname.length > 4 && name.length > 3
+              && description.length > 6){
+              
+            
+            const number_refresh = () => {return(number == undefined ? "" : number)};
 
-    kit["sport"] = sport;
-    kit["teamname"] = teamname;
-    kit["type"] = type;
-    kit["name"] = name_refresh();
-    kit["number"] =  number_refresh();
-    kit["description"] = description;
+            kit["sport"] = sport;
+            kit["teamname"] = teamname;
+            kit["type"] = type;
+            kit["name"] = name;
+            kit["number"] =  number_refresh();
+            kit["description"] = description;
+            
+            localStorage.setItem("custm_kit", JSON.stringify(kit));
+            document.getElementById("next").disabled = false;
 
+            }else{
+              document.getElementById("teamname").style.border = "4px solid red";
+              document.getElementById("description").style.border = "4px solid red";
+              alert("Please fill in all obligatory fields with minimum 5 characters...")
+            }
+    }else{
+            document.getElementById("acc").click();document.getElementById("burger").click();
+            alert("Please log in first...")
 
-    localStorage.setItem("custom_kit", JSON.stringify(kit));
+    }
+  
   }
 
   return (
         <React.Fragment>
-            <div className="container bg-dark mt-5">
+            <div className="container-fluid bg-dark mt-5">
 
             
         <form className="mt-5">
@@ -60,12 +86,12 @@ export default function Custom_kits() {
 
         <div className="input-group mb-3 mt-5">
         <span className="input-group-text bg-dark text-white">Name :</span>
-          <input id="name" type="text" className="form-control" placeholder="Name to be printed on shirt (Optional)" aria-label="Username" aria-describedby="basic-addon1"></input>
+          <input required id="name" type="text" className="form-control" placeholder="Name printed on shirt-Optional" aria-label="Username" aria-describedby="basic-addon1"></input>
         </div>
 
         <div className="input-group mb-3 mt-5">
         <span className="input-group-text bg-dark text-white">Number :</span>
-          <input id="number" type="text" className="form-control" placeholder="Number to be printed on shirt (Optional)" aria-label="Username" aria-describedby="basic-addon1"></input>
+          <input id="number" type="text" className="form-control" placeholder="Number printed on shirt-Optional" aria-label="Username" aria-describedby="basic-addon1"></input>
         </div>
 
 
@@ -74,18 +100,22 @@ export default function Custom_kits() {
         <span className="input-group-text bg-dark text-white">Description :</span>
           <textarea id="description" required className="form-control" placeholder="Give a further description like: The Size of the kit, e.t.c.." aria-label="With textarea"></textarea>
         </div>
-        <div>
+        <div className="">
 
-          <div className="cotainer row">
-              <div className="col-5"><span></span></div>
-              <button onClick={submit_details} className="btn btn-primary col-2 my-3" type="submit">Submit </button>
+          <div className=" text-center">
+              
+              <button  onClick={submit_details} className="btn btn-primary m-4" type="submit" >Submit </button>
+              <button id="next" data-bs-toggle="modal" data-bs-target="#custm" type="button" className="btn btn-success">Next</button>
           </div>
         </div>
 
         </form>
-
+        
+ 
         </div>
+        <Customer_details kit={kit}/>
         <Socials_area/>
+        
         </React.Fragment>
 
   );

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { useCart } from 'react-use-cart';
-
+import  Customer_details from "../customer_details"
 
 export default function Cart() {
 
@@ -73,12 +73,12 @@ export default function Cart() {
                     </tr>
                     </tbody>
                 </table>
-                <button className="btn btn-warning fw-bold">Proceed to checkout</button>
+                <button className="btn btn-warning fw-bold" data-bs-toggle="modal" data-bs-target="#custm">Proceed to checkout</button>
                 <button onClick={emptyCart} className="btn btn-danger fw-bold ms-5">Empty Cart</button>
 
             </div>
             </div>
-            
+            <Customer_details />
     </section>
 
 

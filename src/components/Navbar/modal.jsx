@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { send } from '@emailjs/browser';
+import ReCaptchaV3 from 'react-google-recaptcha';
 
 export default class Modal extends Component{
     get_time(){
@@ -114,6 +115,7 @@ export default class Modal extends Component{
                   <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" id="closeit">Close</button>
                   <button type="submit" disabled={this.cooldown()} onClick={this.send_email} id="send-btn" className="btn btn-primary">Send Email</button>
+                  
                   
                   </div>
                 </div>

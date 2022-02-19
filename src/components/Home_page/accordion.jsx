@@ -4,7 +4,7 @@ export default function Accordion() {
   return (
 
     <div className="container-fluid bg-dark mt-5">
-        <header className="text-white text-center"> FAQs </header>
+        <header className="text-white text-center"> ... </header>
     <div className="accordion bg-dark" id="accordionExample">
   <div className="accordion-item bg-dark text-white">
     <h2 className="accordion-header" id="headingOne">
@@ -14,7 +14,10 @@ export default function Accordion() {
     </h2>
     <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div className="accordion-body">
-        <strong>This is the first item bg-dark text-white's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        Kit zone is your one stop sport shop/online store for a variety of brand new sports clothing.
+        Here, you will selected kits, sports wear and many other types of clothing.
+        We ensure quality in our customer service and support. For further queries on what we offer, you will find our socials <a href='#socials-area'>below
+          </a>.
       </div>
     </div>
   </div>
@@ -26,7 +29,12 @@ export default function Accordion() {
     </h2>
     <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
       <div className="accordion-body">
-        <strong>This is the second item bg-dark text-white's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        When it comes to deliveries, we currently do not deliver. We will let you know the place to collect what you ordered.
+         However, if the customer is within close proximity,
+        we might give it a second thought, hence we advise you to enter the correct address details on the website when placing an
+        order. <br/><br/><strong>NO payments are collected through this website</strong> . Payments can be done through cash on delivery or mobile money (momo, airtel money e.t.c) or EFT. If you intend pay via 
+        mobile money or EFT, please first place and confirm your order, and then contact us through the same socials given<a href="socials-area">below</a> 
+        before paying.
       </div>
     </div>
   </div>
@@ -38,7 +46,8 @@ export default function Accordion() {
     </h2>
     <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
       <div className="accordion-body">
-        <strong>This is the third item bg-dark text-white's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        Kitzone is designed and created to only be of service in Lusaka city of Zambia. We are a small business situated in Lusaka, so we have very little coverage at the time being, hence we will only accept orders from
+        the residents of Lusaka.
       </div>
     </div>
   </div>

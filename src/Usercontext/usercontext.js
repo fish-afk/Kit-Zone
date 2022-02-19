@@ -10,17 +10,18 @@ import {
   GoogleAuthProvider,
   sendEmailVerification,
   GithubAuthProvider,
+  
 } from "firebase/auth";
 import { auth } from "../Firebase/firebase";
 
 export const UserContext = createContext({});
-
+export let curr = "";
 export const useUserContext = () => {
   return useContext(UserContext);
 };
 
 export const UserContextProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -30,7 +31,7 @@ export const UserContextProvider = ({ children }) => {
       if (res) {
         setUser(res);
       } else {
-        setUser(null);
+        setUser("");
       }
       setError("");
       setLoading(false);
@@ -39,15 +40,18 @@ export const UserContextProvider = ({ children }) => {
   }, []);
 
   const registerUser = (email, password, name) => {
+    
     setLoading(true);
     setError("");
     createUserWithEmailAndPassword(auth, email, password)
       .then(() =>
-        auth.currentUser.sendEmailVerification(),
-        updateProfile(auth.currentUser, {
+          updateProfile( auth.currentUser, {
           displayName: name,
-        })
-      )
+        }),
+        
+      ).then(() => {
+        sendEmailVerification(auth.currentUser)
+      })
       .then((res) => console.log(res))
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));

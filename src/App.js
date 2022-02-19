@@ -11,9 +11,8 @@ import {CartProvider} from "react-use-cart"
 import Custom_kits from "./components/Custom_kits/Final"
 import SignInpage from './components/SignInpage';
 
-function App(){
 
-  
+function App(){
 
   return(
       <div>

@@ -50,7 +50,7 @@ export default function Navbar(){
               </li>
 
               <li className="specials" data-bs-toggle="modal" data-bs-target="#email" onClick={collapse}>
-                <a className="nav-link specials px-3" id="emailing" type="button" data-bs-toggle="modal" data-bs-target="#email">Email-us</a>
+                <a className="nav-link specials px-3" id="emailing" type="button" data-bs-target="#email">Email-us</a>
               </li>
               
               <li className="specials" onClick={collapse}>
@@ -70,7 +70,7 @@ export default function Navbar(){
               </Link>
 
               <Link to="/auths" type="button" className="nav-link specials px-3">
-              <button type="button" className="button position-relative" onClick={collapse}>
+              <button type="button" id="acc" className="button position-relative" onClick={collapse}>
                 Account
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                      
