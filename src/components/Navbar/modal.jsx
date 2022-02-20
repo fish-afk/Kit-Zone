@@ -1,15 +1,42 @@
 import React, { Component } from 'react';
 import { send } from '@emailjs/browser';
-import ReCaptchaV3 from 'react-google-recaptcha';
+import Recaptcha from 'react-recaptcha';
+import Resource_data_service from "../../fetch_resources"
 
 export default class Modal extends Component{
+    constructor(props) {
+      super(props)
+      this.handleSend = this.handleSend.bind(this);
+      this.recaptchaLoaded = this.recaptchaLoaded.bind(this);
+      this.verifyCallback = this.verifyCallback.bind(this);
+      this.state ={
+        isVerified: false
+      }
+    }
+
+    handleSend(){
+      if(this.state.isVerified === true){
+        this.send_email();
+      }else{
+        alert("please verify that you are a human..")
+      }
+    }
+
+    verifyCallback(response){
+      if(response){
+        this.setState({isVerified:true})
+      }
+    }
+
+    recaptchaLoaded(){
+      console.log("captcha loaded");
+    }
     get_time(){
 
      let time = localStorage.getItem("time");
      let currentTime = new Date();
      let hour = currentTime.getHours();
-
-     if(time == undefined || hour - time < 0){
+     if(time === undefined || hour - time < 0){
        
        localStorage.setItem("time", hour);
        return "First_time";
@@ -18,14 +45,11 @@ export default class Modal extends Component{
        console.log(hour - parseInt(time))
        return( hour - parseInt(time))
      }
-
-     
     }
-
     cooldown=()=>{
      
       let new_time = new Date();
-      if(this.get_time() == "First_time"){
+      if(this.get_time() === "First_time"){
         return false;
       }else{
         if(this.get_time() <= 3 && this.get_time() >= 0){
@@ -37,23 +61,31 @@ export default class Modal extends Component{
       }
 
     }
-
-
     async send_email(e){
       
+      let KEYS = null;
       const close_btn = document.getElementById("closeit");
+      await Resource_data_service.getall_data(true).then((response) => {
+        
+        
+        let service_key = response.data.emailjs.service_key
+        let template_key = response.data.emailjs.template_key;
+        let user_key = response.data.emailjs.user_key;
 
-      const KEYS ={
-        service_key: "service_8h3v6ew",
-        template_key: "template_ud2ti7c",
-        user_key: "user_uBwPjYzKVYr2jLKE17pNV"
-
-      }
+        KEYS ={
+          service_key: service_key,
+          template_key: template_key,
+          user_key: user_key
+        }
+        
+      }).catch(() => {
+        console.error("Failed to fetch resources.")
+      })
 
       let params ={
-        org_name:"kit-zone.org",
+        org_name:"kit-zone-server",
         from_name : document.getElementById("sender-name").value,
-        to_name :"etc",
+        to_name :"Saad",
         message :document.getElementById("message-text").value
         
        }
@@ -65,7 +97,7 @@ export default class Modal extends Component{
         
         await send(KEYS.service_key, KEYS.template_key, params, KEYS.user_key ).then((response) => {
          
-         if(response.status == 200){
+         if(response.status === 200){
           
           close_btn.click()
            window.location.reload();
@@ -114,8 +146,14 @@ export default class Modal extends Component{
                   </form>
                   <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" id="closeit">Close</button>
-                  <button type="submit" disabled={this.cooldown()} onClick={this.send_email} id="send-btn" className="btn btn-primary">Send Email</button>
-                  
+                  <button type="submit" disabled={this.cooldown()} onClick={this.handleSend} id="send-btn" className="btn btn-primary">Send Email</button>
+                  <div className="container">
+                  <Recaptcha
+                    sitekey="6LcG040eAAAAAPPkBhrS0IueBZQE-NFurLvxb0XV"
+                     render="unexplicit" onloadCallback={this.recaptchaLoaded}
+                     verifyCallback={this.verifyCallback}
+                  />
+                  </div>
                   
                   </div>
                 </div>
