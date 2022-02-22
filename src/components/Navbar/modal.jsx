@@ -1,42 +1,14 @@
 import React, { Component } from 'react';
 import { send } from '@emailjs/browser';
-import Recaptcha from 'react-recaptcha';
 import Resource_data_service from "../../fetch_resources"
 
 export default class Modal extends Component{
-    constructor(props) {
-      super(props)
-      this.handleSend = this.handleSend.bind(this);
-      this.recaptchaLoaded = this.recaptchaLoaded.bind(this);
-      this.verifyCallback = this.verifyCallback.bind(this);
-      this.state ={
-        isVerified: false
-      }
-    }
-
-    handleSend(){
-      if(this.state.isVerified === true){
-        this.send_email();
-      }else{
-        alert("please verify that you are a human..")
-      }
-    }
-
-    verifyCallback(response){
-      if(response){
-        this.setState({isVerified:true})
-      }
-    }
-
-    recaptchaLoaded(){
-      console.log("captcha loaded");
-    }
     get_time(){
 
      let time = localStorage.getItem("time");
      let currentTime = new Date();
      let hour = currentTime.getHours();
-     if(time === undefined || hour - time < 0){
+     if(time == undefined || hour - time < 0){
        
        localStorage.setItem("time", hour);
        return "First_time";
@@ -61,6 +33,8 @@ export default class Modal extends Component{
       }
 
     }
+
+   
     async send_email(e){
       
       let KEYS = null;
@@ -146,13 +120,9 @@ export default class Modal extends Component{
                   </form>
                   <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" id="closeit">Close</button>
-                  <button type="submit" disabled={this.cooldown()} onClick={this.handleSend} id="send-btn" className="btn btn-primary">Send Email</button>
+                  <button type="submit" disabled={this.cooldown()} onClick={this.send_email} id="send-btn" className="btn btn-primary">Send Email</button>
                   <div className="container">
-                  <Recaptcha
-                    sitekey="6LcG040eAAAAAPPkBhrS0IueBZQE-NFurLvxb0XV"
-                     render="unexplicit" onloadCallback={this.recaptchaLoaded}
-                     verifyCallback={this.verifyCallback}
-                  />
+                  
                   </div>
                   
                   </div>

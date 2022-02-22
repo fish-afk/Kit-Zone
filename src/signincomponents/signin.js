@@ -15,22 +15,27 @@ const Signin = () => {
 
   const forgotPasswordHandler = () => {
     const email = emailRef.current.value;
-    if (email)
+    if (email){
       forgotPassword(email).then(() => {
         emailRef.current.value = "";
-      });
+      }).catch((err)=> {
+        alert(err.message);
+      })}
+      else{
+        alert("Enter your email first");
+      };
   };
 
   return (
-    <div className="form">
+    <div className="form mx-4">
         <br/>
         <br/>
         <br/>
         <br/>
       <h2> Login </h2>
       <form onSubmit={onSubmit}>
-        <input placeholder="Email" type="email" ref={emailRef} />
-        <input placeholder="Password" type="password" ref={psdRef} />
+        <input required placeholder="Email" type="email" ref={emailRef} />
+        <input required placeholder="Password" type="password" ref={psdRef} />
         <button type="submit">Sign In</button>
         <p onClick={forgotPasswordHandler}>Forgot Password?</p>
       </form>

@@ -15,7 +15,7 @@ export default function Accordion() {
     <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div className="accordion-body">
         Kit zone is your one stop sport shop/online store for a variety of brand new sports clothing.
-        Here, you will selected kits, sports wear and many other types of clothing.
+        Here, you will find selected kits, sports wear and many other types of clothing.
         We ensure quality in our customer service and support. For further queries on what we offer, you will find our socials <a href='#socials-area'>below
           </a>.
       </div>
@@ -32,8 +32,8 @@ export default function Accordion() {
         When it comes to deliveries, we currently do not deliver. We will let you know the place to collect what you ordered.
          However, if the customer is within close proximity,
         we might give it a second thought, hence we advise you to enter the correct address details on the website when placing an
-        order. <br/><br/><strong>NO payments are collected through this website</strong> . Payments can be done through cash on delivery or mobile money (momo, airtel money e.t.c) or EFT. If you intend pay via 
-        mobile money or EFT, please first place and confirm your order, and then contact us through the same socials given<a href="socials-area">below</a> 
+        order. <br/><br/><strong>NO payments are collected through this website</strong> . Payments can be done with cash on delivery, mobile money (momo, airtel money e.t.c) or EFT. If you intend pay via 
+        mobile money or EFT, please first place and confirm your order, and then contact us through the same socials given <a href="socials-area">below </a> 
         before paying.
       </div>
     </div>

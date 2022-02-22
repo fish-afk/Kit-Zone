@@ -3,12 +3,8 @@ import Modal from './modal';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { useCart } from 'react-use-cart';
 import {useEffect, useState} from "react"
-import {analytics} from "../../Firebase/firebase"
-import {signInWithPopup, signOut, GoogleAuthProvider} from "firebase/auth";
-
 
 export default function Navbar(){  
-
 
   const {
     isEmpty,
@@ -72,11 +68,9 @@ export default function Navbar(){
               <Link to="/auths" type="button" className="nav-link specials px-3">
               <button type="button" id="acc" className="button position-relative" onClick={collapse}>
                 Account
-                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                     
-                   
-                  </span>
+               
               </button>
+              
               </Link>
             </ul>
            

@@ -92,7 +92,7 @@ export default function Customer_details(props) {
               <label className="col-form-label">Expected Order collection date:</label>
               <input name="date" max="3" type="date" required placeholder="please select a valid date" id="date-chosen" className="form-control"></input>
             </div>
-            <button className="btn-danger me-4">Quit</button>
+           
             <button className="btn-secondary" type="submit">Proceed to confirm</button>
           </form>
           <div className="modal-footer">

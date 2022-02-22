@@ -23,7 +23,7 @@ export default function Custom_kits() {
     let number = document.getElementById("number").value;
     let description= document.getElementById("description").value;
 
-    if(user.email != undefined) {
+    if(user.email != undefined && user.emailVerified == true) {
       
             if(sport !== "" && type !== "" && teamname.length > 4 && name.length > 3
               && description.length > 6){
@@ -47,9 +47,12 @@ export default function Custom_kits() {
               alert("Please fill in all obligatory fields with minimum 5 characters...")
             }
     }else{
+      if(user.email == undefined){
             document.getElementById("acc").click();document.getElementById("burger").click();
             alert("Please log in first...")
-
+      }else{
+        alert("Please Verify Your Email...")
+      }
     }
   
   }

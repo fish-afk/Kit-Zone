@@ -83,6 +83,14 @@ export const UserContextProvider = ({ children }) => {
     signOut(auth);
   };
 
+  const deletuser = () => {
+    auth.currentUser.delete().then(() => {
+      alert("Success!")
+    }).catch((err) => {
+      alert(err + "\n Try relogging in to do this action")
+    });
+  }
+
   const forgotPassword = (email) => {
     return sendPasswordResetEmail(auth, email);
   };
@@ -96,6 +104,7 @@ export const UserContextProvider = ({ children }) => {
     logoutUser,
     forgotPassword,
     signInWithGoogle,
+    deletuser
     
   };
   return (
