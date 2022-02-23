@@ -4,6 +4,7 @@ import {
   sendEmailVerification,
   } from "firebase/auth";
 
+
 const Dashboard = () => {
   const { user, logoutUser, deletuser } = useUserContext();
   const verified = user.emailVerified;
@@ -15,7 +16,6 @@ const Dashboard = () => {
   }
 
   const verify_email = () => {
-    console.log()
     sendEmailVerification(user).then(() => {
       document.getElementById("innerhtm").innerHTML = `<h1 className="text-info">Check your inbox</h1>`
       alert("Email Verification has been sent!")
@@ -34,6 +34,9 @@ const Dashboard = () => {
       {return_verification_status()}
       <button className="btn-danger mt-3 mb-3 px-5 py-1" onClick={logoutUser}>Log out</button>
       <button className="btn-danger ms-2 mt-3 mb-3 px-3 py-1" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Account</button>
+
+      <br/>
+              <button type="button" className="btn btn-primary px-5 py-1">My orders</button>
       <h5 className="text-warning mt-5 text-start">Refresh the page if your credentials don't show up.</h5>
 
 
@@ -41,7 +44,8 @@ const Dashboard = () => {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title text-dark" id="exampleModalLabel">Are you sure you want to delete this account?</h5>
+              <h5 className="modal-title text-dark" id="exampleModalLabel">Are you sure you want to delete this account?<br/>
+              <h5 className="text-warning fw-bold">All orders associated with it will be cancelled!</h5></h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
@@ -50,6 +54,7 @@ const Dashboard = () => {
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">No</button>
               <button type="button" className="btn btn-primary" onClick={deletuser}>Yes</button>
+              
             </div>
           </div>
         </div>

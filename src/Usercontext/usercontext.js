@@ -14,9 +14,11 @@ import {
   
 } from "firebase/auth";
 import { auth } from "../Firebase/firebase";
+import UserDataService from "../User-operations"
 
 export const UserContext = createContext({});
-export let curr = "";
+let newuser = "";
+
 export const useUserContext = () => {
   return useContext(UserContext);
 };
@@ -51,7 +53,12 @@ export const UserContextProvider = ({ children }) => {
         }),
         
       ).then(() => {
-        sendEmailVerification(auth.currentUser)
+        sendEmailVerification(auth.currentUser);
+        newuser = auth.currentUser;
+        newuser["creationdate"] = new Date()
+        console.log(newuser);
+
+        Create_user_order_account(newuser)
       })
       .then((res) => console.log(res))
       .catch((err) => setError(err.message))
@@ -73,22 +80,48 @@ export const UserContextProvider = ({ children }) => {
     setError("");
 
     signInWithPopup(auth, new GoogleAuthProvider())
-      .then((res) => console.log(res))
+      .then((res) => {console.log(res)
+        newuser = auth.currentUser;
+        newuser["creationdate"] = new Date()
+        newuser["google_one"] = true
+        console.log(newuser);
+
+        Create_user_order_account(newuser)})
       .catch((err) => setError(err.code))
       .finally(() => setLoading(false));
   };
   
+  const Create_user_order_account = (user) => {
+    UserDataService.createUser(user).then((res) => {
+      console.log(res);
+    }).catch((err) => {
+      alert(err)
+    } )
+  }
 
   const logoutUser = () => {
     signOut(auth);
   };
 
   const deletuser = () => {
+    let UID = auth.currentUser.uid;
     auth.currentUser.delete().then(() => {
       alert("Success!")
+    }).then(() =>{
+      deleteTheUsersDatabase(UID);
     }).catch((err) => {
       alert(err + "\n Try relogging in to do this action")
-    });
+    }).finally(() => {
+      window.location.reload();
+    })
+  }
+
+  const deleteTheUsersDatabase = (uid) => {
+    UserDataService.delete_Account(uid).then((res) => {
+      console.log(res)
+    }).catch((err) => {
+      console.log(err)
+    })
   }
 
   const forgotPassword = (email) => {
@@ -104,7 +137,8 @@ export const UserContextProvider = ({ children }) => {
     logoutUser,
     forgotPassword,
     signInWithGoogle,
-    deletuser
+    deletuser,
+    auth
     
   };
   return (

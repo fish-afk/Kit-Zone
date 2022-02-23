@@ -17,9 +17,7 @@ const Signup = () => {
       return
     }
   }
-
   const verifycallback = (response) => {
-    console.log(response)
     setverify(true);
   }
   const onSubmit = (e) => {
@@ -30,7 +28,10 @@ const Signup = () => {
     const email = emailRef.current.value;
     const name = nameRef.current.value;
     const password = psdRef.current.value;
-    if (email && password && name) registerUser(email, password, name)
+    if (email && password && name) {
+      registerUser(email, password, name)
+
+    }
     }else if(Verify == false){
       alert("Please complete captcha")
     }

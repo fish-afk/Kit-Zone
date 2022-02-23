@@ -8,14 +8,23 @@ export default class Modal extends Component{
      let time = localStorage.getItem("time");
      let currentTime = new Date();
      let hour = currentTime.getHours();
-     if(time == undefined || hour - time < 0){
-       
+     if(time == undefined){
+
        localStorage.setItem("time", hour);
        return "First_time";
 
      }else{
-       console.log(hour - parseInt(time))
-       return( hour - parseInt(time))
+       if(hour > parseInt(time)){
+
+        console.log(hour - parseInt(time))
+        return( hour - parseInt(time))
+
+       }else if(parseInt(time) >= hour){
+
+        console.log(parseInt(time) - hour)
+        return(parseInt(time) - hour)
+       }
+       
      }
     }
     cooldown=()=>{
@@ -34,7 +43,13 @@ export default class Modal extends Component{
 
     }
 
-   
+   return_btn_html=() => {
+     if(this.cooldown() == true){
+       return <h5 className="text-warning">On cooldown</h5>
+     }else{
+       return <button type="submit" onClick={this.send_email} id="send-btn" className="btn btn-primary">Send Email</button>
+     }
+   }
     async send_email(e){
       
       let KEYS = null;
@@ -114,13 +129,10 @@ export default class Modal extends Component{
                       <label className="col-form-label">Message:</label>
                       <textarea className="form-control" id="message-text"></textarea>
                     </div>
-                    <div className="text-center">
-                      <h5>You can only send 1 email every 3 hours...</h5>
-                    </div>
                   </form>
                   <div className="modal-footer">
                   <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" id="closeit">Close</button>
-                  <button type="submit" disabled={this.cooldown()} onClick={this.send_email} id="send-btn" className="btn btn-primary">Send Email</button>
+                  {this.return_btn_html()}
                   <div className="container">
                   
                   </div>

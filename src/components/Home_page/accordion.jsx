@@ -47,7 +47,7 @@ export default function Accordion() {
     <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
       <div className="accordion-body">
         Kitzone is designed and created to only be of service in Lusaka city of Zambia. We are a small business situated in Lusaka, so we have very little coverage at the time being, hence we will only accept orders from
-        the residents of Lusaka.
+        the residents of Lusaka. If you feel the need to confirm if you can place an order, after considering your location, please feel free to contact us...
       </div>
     </div>
   </div>

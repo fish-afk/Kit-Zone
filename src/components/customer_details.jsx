@@ -1,10 +1,12 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 import Resource_data_service from "../fetch_resources"
+import UserDataService from "../User-operations"
+import {useUserContext} from "../Usercontext/usercontext"
 
 export default function Customer_details(props) {
   const [desc, Setdesc] = useState({});
-
+  const {auth} = useUserContext();
 
   const form = document.getElementById("details")
   
@@ -16,6 +18,32 @@ export default function Customer_details(props) {
       console.error("Failed to fetch resources.")
     })
   }, [])
+
+  const Place_order = () => {
+
+    const date = new Date().getDate();
+    let data = {}
+    let order = JSON.parse(localStorage.getItem("react-use-cart"));
+    let items = [...order.items];
+
+    let dated_items = [];
+
+    for(let i = 0; i< items.length; i++){
+      items[i]["date"] = date;
+      items[i]["type"] = "normal kit";
+      items[i]["order status"] = "pending";
+      dated_items.push(items[i]);
+    }
+
+    data["orders"] = dated_items;
+    data["uid"] = auth.currentUser.uid;
+  
+    UserDataService.post_Order(data).then((res) => {
+      console.log(res)
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
 
   const return_html = () => {
     return (
@@ -45,14 +73,17 @@ export default function Customer_details(props) {
   }).then(
     
     (message) => {if(message == "OK") {alert("Order confirmation email sent!");
-    document.getElementById("custm").style.display = "none"}
+    document.getElementById("custm").style.display = "none"
+    Place_order()
     window.location.reload()}
-  );
+    }
+  ).catch((err) => {
+    alert(err);
+  });
       
     
   }
 
-  
   return (
 
     <React.Fragment>
