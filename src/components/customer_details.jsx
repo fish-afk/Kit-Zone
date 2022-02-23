@@ -33,19 +33,20 @@ export default function Customer_details(props) {
     const delivery_date = form['date-chosen'].value;
 
     
-    
-        
     window.Email.send({
       Host : "smtp.gmail.com",
       Username : "kitzone9090@gmail.com",
       Password : desc.smtp.pass,
       To : 'mirzashihab2@gmail.com',
       From : "kitzone9090@gmail.com",
-      Subject : "This is the subject",
+      Subject : "Order Confirmation",
       Body : return_html()
 
   }).then(
-    message => alert(message)
+    
+    (message) => {if(message == "OK") {alert("Order confirmation email sent!");
+    document.getElementById("custm").style.display = "none"}
+    window.location.reload()}
   );
       
     
