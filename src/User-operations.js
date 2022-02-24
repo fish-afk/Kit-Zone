@@ -15,6 +15,14 @@ class UserDataService {
     return axios.delete(`${URL}/AcoountdeletionHandler?uid=${uid}`);
  }
 
+ get_all_users_orders(uid){
+   return axios.get(`${URL}/getuserorders?uid=${uid}`)
+ }
+
+ Cancel_order(oid, uid){
+  return axios.delete(`${URL}/cancelorder?uid=${uid}&_id=${oid}`);
+ }
+
 }
 
 export default new UserDataService();

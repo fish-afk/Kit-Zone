@@ -10,7 +10,8 @@ import Other_wear from './components/other-wear/other-wear';
 import {CartProvider} from "react-use-cart"
 import Custom_kits from "./components/Custom_kits/Final"
 import SignInpage from './components/SignInpage';
-
+import Customer_details from "./components/customer_details"
+import Pending_orders from "./components/Pending-orders"
 
 function App(){
 
@@ -23,6 +24,8 @@ function App(){
       <Route exact path="/otherwears" component={Other_wear}/>
       <Route exact path="/custom-kits" component={Custom_kits}/>
       <Route exact path="/auths" component={SignInpage}/>
+      <Route exact path="/customer-details" component={Customer_details}/>
+      <Route exact path="/my-orders" component={Pending_orders}/>
       
       </CartProvider>
       </div>

@@ -29,17 +29,16 @@ export default class Modal extends Component{
     }
     cooldown=()=>{
      
-      let new_time = new Date();
+      
       if(this.get_time() === "First_time"){
         return false;
-      }else{
-        if(this.get_time() <= 3 && this.get_time() >= 0){
+      }else if(this.get_time() <= 3 && this.get_time() >= 0){
           return true;
         }else if(this.get_time() > 3){
-          localStorage.setItem("time", String(new_time.getHours()));
+          
           return false;
         }
-      }
+      
 
     }
 
@@ -87,11 +86,11 @@ export default class Modal extends Component{
         await send(KEYS.service_key, KEYS.template_key, params, KEYS.user_key ).then((response) => {
          
          if(response.status === 200){
-          
+          let new_time = new Date();
           close_btn.click()
            window.location.reload();
            alert("Email has been sent successfully,\nThank you for your feedback!");
-
+           localStorage.setItem("time", String(new_time.getHours()));
           
 
          }else{

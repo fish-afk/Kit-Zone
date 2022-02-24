@@ -46,6 +46,7 @@ export const UserContextProvider = ({ children }) => {
     
     setLoading(true);
     setError("");
+    const date = new Date().getDate()
     createUserWithEmailAndPassword(auth, email, password)
       .then(() =>
           updateProfile( auth.currentUser, {
@@ -55,7 +56,8 @@ export const UserContextProvider = ({ children }) => {
       ).then(() => {
         sendEmailVerification(auth.currentUser);
         newuser = auth.currentUser;
-        newuser["creationdate"] = new Date()
+        localStorage.setItem("uid", auth.currentUser.uid)
+        newuser["creationdate"] = date + "";
         console.log(newuser);
 
         Create_user_order_account(newuser)
@@ -80,9 +82,11 @@ export const UserContextProvider = ({ children }) => {
     setError("");
 
     signInWithPopup(auth, new GoogleAuthProvider())
+    const date = new Date().getDate()
       .then((res) => {console.log(res)
         newuser = auth.currentUser;
-        newuser["creationdate"] = new Date()
+        localStorage.setItem("uid", auth.currentUser.uid)
+        newuser["creationdate"] = date + "";
         newuser["google_one"] = true
         console.log(newuser);
 
@@ -103,21 +107,22 @@ export const UserContextProvider = ({ children }) => {
     signOut(auth);
   };
 
-  const deletuser = () => {
+  const deletuser = async () => {
     let UID = auth.currentUser.uid;
-    auth.currentUser.delete().then(() => {
+    localStorage.removeItem("uid")
+    await auth.currentUser.delete().then(() => {
       alert("Success!")
     }).then(() =>{
       deleteTheUsersDatabase(UID);
     }).catch((err) => {
-      alert(err + "\n Try relogging in to do this action")
-    }).finally(() => {
       window.location.reload();
+      alert(err + "\n Try relogging in to do this action")
     })
   }
 
-  const deleteTheUsersDatabase = (uid) => {
-    UserDataService.delete_Account(uid).then((res) => {
+  const deleteTheUsersDatabase = async (uid) => {
+    await UserDataService.delete_Account(uid).then((res) => {
+      window.location.reload();
       console.log(res)
     }).catch((err) => {
       console.log(err)

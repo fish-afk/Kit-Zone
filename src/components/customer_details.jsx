@@ -3,13 +3,21 @@ import {useState, useEffect} from 'react'
 import Resource_data_service from "../fetch_resources"
 import UserDataService from "../User-operations"
 import {useUserContext} from "../Usercontext/usercontext"
+import { useCart } from 'react-use-cart';
+
+// custom hook to get the current pathname in React
 
 export default function Customer_details(props) {
   const [desc, Setdesc] = useState({});
   const {auth} = useUserContext();
+  const {emptyCart} = useCart();
 
   const form = document.getElementById("details")
   
+  const getpath = () => {
+    let path = window.location.pathname;
+    return path;
+  }
 
   useEffect(() => {
     Resource_data_service.getall_data().then((res) => {
@@ -19,35 +27,62 @@ export default function Customer_details(props) {
     })
   }, [])
 
-  const Place_order = () => {
-
+  const Place_order = async () => {
     const date = new Date().getDate();
-    let data = {}
-    let order = JSON.parse(localStorage.getItem("react-use-cart"));
-    let items = [...order.items];
+    if(getpath() == "/cart"){
+        console.log("udegfugfasf");
+        let data = {}
+        let order = JSON.parse(localStorage.getItem("react-use-cart"));
+        let items = [...order.items];
 
-    let dated_items = [];
+        let dated_items = [];
 
-    for(let i = 0; i< items.length; i++){
-      items[i]["date"] = date;
-      items[i]["type"] = "normal kit";
-      items[i]["order status"] = "pending";
-      dated_items.push(items[i]);
-    }
+        for(let i = 0; i< items.length; i++){
+          items[i]["date"] = date;
+          items[i]["order_type"] = "normal kit";
+          items[i]["order_status"] = "pending";
+          dated_items.push(items[i]);
+        }
 
-    data["orders"] = dated_items;
-    data["uid"] = auth.currentUser.uid;
-  
-    UserDataService.post_Order(data).then((res) => {
-      console.log(res)
-    }).catch((error) => {
-      console.log(error);
-    });
+        data["orders"] = dated_items;
+        data["uid"] = auth.currentUser.uid;
+      
+        await UserDataService.post_Order(data).then((res) => {
+          console.log(res)
+          emptyCart()
+          window.location.reload()
+        }).catch((error) => {
+          console.log(error);
+        });
+      }
+      else if(getpath() == "/custom-kits"){
+        console.log("ddddd");
+        let order = JSON.parse(localStorage.getItem("custm_kit"));
+
+        order["date"] = date;
+        order["order_type"] = "custom kit";
+        order["order_status"] = "pending";
+        let arr_order = [order]
+
+        let body = {
+          "uid": auth.currentUser.uid,
+          "orders": arr_order
+        }
+        await UserDataService.post_Order(body).then((res) => {
+          console.log(res)
+          window.location.reload()
+        }).catch((error) => {
+          console.log(error);
+        });
+      }
   }
 
   const return_html = () => {
     return (
-      `<div><p><u>${JSON.stringify(props.kit)}</u></p><br/><button class="btn btn-primary"><a href="instagram.com">click</a></button></div>`
+      `<div><p>Hello there! This is an order confirmation email, By clicking the link below:</p>
+       <p color="yellow">You accept to confirm all previously placed orders on kitzonezambia.com</p><br/>
+      <button class="btn btn-primary"><a href="instagram.com" color="yellow">click here</a></button><br/>
+      <p>If you were not expecting this email, kindly ignore it.</p></div>`
     );
   }
   const sendemail = (e) => {
@@ -72,10 +107,11 @@ export default function Customer_details(props) {
 
   }).then(
     
-    (message) => {if(message == "OK") {alert("Order confirmation email sent!");
-    document.getElementById("custm").style.display = "none"
-    Place_order()
-    window.location.reload()}
+    (message) => {if(message == "OK") {
+      Place_order()
+      alert("Order confirmation email sent!\n You may now close this dialog box");
+    
+    }
     }
   ).catch((err) => {
     alert(err);
@@ -87,6 +123,7 @@ export default function Customer_details(props) {
   return (
 
     <React.Fragment>
+      
     <div className="modal fade" id="custm" aria-labelledby="emailModal" aria-hidden="true">
     <div className="modal-dialog">
       <div className="modal-content">
