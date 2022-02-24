@@ -27,8 +27,23 @@ export default function Customer_details(props) {
     })
   }, [])
 
+
+  function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+          result += characters.charAt(Math.floor(Math.random() * 
+    charactersLength));
+      }
+      return result;
+    }
+
+ 
   const Place_order = async () => {
-    const date = new Date().getDate();
+    const nowDate = new Date();
+    const date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate();
+    const delivery_date = form['date-chosen'].value;
     if(getpath() == "/cart"){
         console.log("udegfugfasf");
         let data = {}
@@ -41,6 +56,7 @@ export default function Customer_details(props) {
           items[i]["date"] = date;
           items[i]["order_type"] = "normal kit";
           items[i]["order_status"] = "pending";
+          items[i]["delivery_date"] = delivery_date;
           dated_items.push(items[i]);
         }
 
@@ -62,6 +78,8 @@ export default function Customer_details(props) {
         order["date"] = date;
         order["order_type"] = "custom kit";
         order["order_status"] = "pending";
+        order["delivery_date"] = delivery_date;
+        order["_id"] = makeid(12);
         let arr_order = [order]
 
         let body = {

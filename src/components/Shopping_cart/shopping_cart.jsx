@@ -22,7 +22,9 @@ export default function Cart() {
         if(user.email != undefined && user.emailVerified == true) {
             return(<button className="btn btn-warning fw-bold" data-bs-toggle="modal" data-bs-target="#custm">Proceed to checkout</button>)
         }else if(user.email == undefined){
-            return(<div className="bg-dark text-danger"><h6>Please Log in first to place an order</h6></div>)
+            return(<div className="bg-dark text-warning text-center fw-bold"><h6>Please <a href="/auths">Log in</a>
+            
+             first to place an order</h6></div>)
         }else if(user.emailVerified == false){
             return(<div className="bg-dark text-danger text-center"><h3>Please verify your email first</h3></div>)
         }
@@ -50,9 +52,10 @@ export default function Cart() {
                 
                 
                 <table className="table table-dark table-responsive-sm table-striped table-hover m-0">
-                    <thead  className="fw-bold text-warning"><tr><td>Kit</td><td>Name</td><td>Price</td><td>Qty</td><td>Size</td><td>Options</td></tr></thead>
+                    <thead  className="fw-bold text-warning"><tr><td>Kit</td><td>Desc.</td><td>Price</td><td>Qty</td><td>Size</td><td>Options</td></tr></thead>
                     <tbody>
                     {items.map((item, index)=>{
+                        let price = parseInt(item.price);
                         return(
                         <tr key={index}>
                             <td>
@@ -63,7 +66,7 @@ export default function Cart() {
                                 {item.teamname + " " + `(${item.description})`}
                             </td>
                             <td className="text-success">
-                                K{item.price}
+                                K{price.toFixed(0)}
                             </td>
                             <td className="text-succcess fw-bold">
                                 {item.quantity}

@@ -11,8 +11,8 @@ const Dashboard = () => {
 
   const return_verification_status = () => {
     return(verified == true ? <h2 className="text-success">Email verification: Complete</h2> :
-    <div id="innerhtm"><h2 className="text-danger">Email verification: InComplete<br/><br/></h2><button 
-    onClick={verify_email} className="bg-info fw-bold">Verify email</button></div>)
+    <div id="innerhtm"><h2 className="text-danger">Email verification: InComplete<br/><br/><h3 className="text-info">Didn't recieve email?</h3></h2><button 
+    onClick={verify_email} className="bg-info fw-bold">Send verification again</button></div>)
   }
 
   const verify_email = () => {
@@ -44,8 +44,8 @@ const Dashboard = () => {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title text-dark" id="exampleModalLabel">Are you sure you want to delete this account?</h5><br/>
-              <h5 className="text-warning fw-bold">All orders associated with it will be cancelled!</h5>
+              <h5 className="modal-title text-dark" id="exampleModalLabel">Are you sure you want to delete this account?<br/>
+               <div className="text-danger fw-bold">All orders associated with it will be cancelled!</div></h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">

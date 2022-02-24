@@ -17,7 +17,7 @@ import { auth } from "../Firebase/firebase";
 import UserDataService from "../User-operations"
 
 export const UserContext = createContext({});
-let newuser = "";
+let newuser = {};
 
 export const useUserContext = () => {
   return useContext(UserContext);
@@ -46,7 +46,8 @@ export const UserContextProvider = ({ children }) => {
     
     setLoading(true);
     setError("");
-    const date = new Date().getDate()
+    const nowDate = new Date();
+    const date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate();
     createUserWithEmailAndPassword(auth, email, password)
       .then(() =>
           updateProfile( auth.currentUser, {
@@ -55,7 +56,7 @@ export const UserContextProvider = ({ children }) => {
         
       ).then(() => {
         sendEmailVerification(auth.currentUser);
-        newuser = auth.currentUser;
+        newuser["user"] = auth.currentUser;
         localStorage.setItem("uid", auth.currentUser.uid)
         newuser["creationdate"] = date + "";
         console.log(newuser);
@@ -80,11 +81,11 @@ export const UserContextProvider = ({ children }) => {
   const signInWithGoogle = () => {
     setLoading(true);
     setError("");
-
+    const nowDate = new Date();
+    const date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate();
     signInWithPopup(auth, new GoogleAuthProvider())
-    const date = new Date().getDate()
       .then((res) => {console.log(res)
-        newuser = auth.currentUser;
+        newuser["user"] = auth.currentUser;
         localStorage.setItem("uid", auth.currentUser.uid)
         newuser["creationdate"] = date + "";
         newuser["google_one"] = true
