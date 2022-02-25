@@ -7,10 +7,21 @@ export default function Pending_order_template(props) {
   const colorize =() => {
       if(props.status == "pending"){
           return <p className="text-warning">Order status: {props.status}</p>
-      }else if(props.status == "completed"){
+      }else if(props.status == "Completed"){
         return <p className="text-success">Order status: {props.status}</p>
       }else{
           return <p className="text-danger">Order status: Error</p>
+      }
+  }
+
+  const price_for_custom = () => {
+      if(props.status == "pending"){
+        return(<h3>Price: {props.price == undefined ? "To be told" : "K" + props.price}<div className="text-info"> 
+        Total ordered: {props.qty == undefined ? "1" : props.qty}</div></h3>);
+
+      }else{
+          return(<h3><div className="text-info"> 
+          Total ordered: {props.qty == undefined ? "1" : props.qty}</div></h3>);
       }
   }
 
@@ -35,12 +46,11 @@ export default function Pending_order_template(props) {
           return
       }
   }
-
   return (
     <div className="gy-3 mb-4 col-sm-4" style={{border:"2px solid black"}}>
         <div id={props.id}>
             <h5><u>{props.name}, {props.desc}</u></h5>
-            <h3>Price: {props.price == undefined ? "To be told" : "K" + props.price}<div className="text-info"> Total ordered: {props.qty == undefined ? "1" : props.qty}</div></h3>
+            {price_for_custom()}
             <h3>Placed on: {props.date}</h3>
             <h3>Expected delivery: {props.delivery}</h3>
             <h3>Kit type : {props.kit_type}</h3>

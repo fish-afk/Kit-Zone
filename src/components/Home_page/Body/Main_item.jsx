@@ -29,6 +29,7 @@ export const Main_item = (props) => {
 
   
   const return_qty = () => {
+    
     let item= Object.assign({}, props.item)
 
     let size = choose_sizes();
@@ -46,7 +47,7 @@ export const Main_item = (props) => {
   }
 
   const btn_enabler2 = (qty) => {
-  return(qty < 1 ? <p></p> : <button onClick={return_qty} type="button" className="btn btn-primary">Add to cart</button>)
+  return(qty < 1 ? <p></p> : <button onClick={return_qty} type="submit" className="btn btn-primary">Add to cart</button>)
   }
   
 
@@ -69,6 +70,7 @@ export const Main_item = (props) => {
               <option value="X-L">X-Large</option>
               <option value="XX-L">XX-Large</option>
             </select>
+            <input required style={{width:"100px"}} placeholder="Shirt number"></input>
             {btn_enabler2(props.Qty_available)}
           </form>
         </div>

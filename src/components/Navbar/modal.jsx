@@ -79,7 +79,8 @@ export default class Modal extends Component{
        }
       if(params.from_name.length < 3 || params.message.length < 50){
 
-        window.alert("-> name should be atleast 3 characters\n-> Message should be at least 50 characters long")
+        document.getElementById("sender-name").style.border = "4px solid red";
+        document.getElementById("message-text").style.border = "4px solid red";
 
       }else{
         
@@ -107,6 +108,11 @@ export default class Modal extends Component{
       
       
     }
+
+    reset(){
+      document.getElementById("sender-name").style.border = "0.1px solid";
+      document.getElementById("message-text").style.border = "0.1px solid";
+    }
     render(){
       
         return(
@@ -116,17 +122,18 @@ export default class Modal extends Component{
               <div className="modal-content">
                 <div className="modal-header">
                   <h5 className="modal-title" id="emailModal">Compose Email</h5>
-                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" onClick={this.reset} 
+                  aria-label="Close"></button>
                 </div>
                 <div className="modal-body">
                   <form>
                     <div className="mb-3">
                       <label className="col-form-label">Your Names:</label>
-                      <input type="text" className="form-control" id="sender-name"></input>
+                      <input type="text"  placeholder="Minimum 8 characters" className="form-control" id="sender-name"></input>
                     </div>
                     <div className="mb-3">
                       <label className="col-form-label">Message:</label>
-                      <textarea className="form-control" id="message-text"></textarea>
+                      <textarea min="50" placeholder="Minimum 50 characters" className="form-control" id="message-text"></textarea>
                     </div>
                   </form>
                   <div className="modal-footer">

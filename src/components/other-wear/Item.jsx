@@ -1,6 +1,5 @@
 import React from 'react';
 import { useCart } from 'react-use-cart';
-import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import 'react-loading-skeleton/dist/skeleton.css'
 

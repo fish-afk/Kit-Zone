@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useCart } from 'react-use-cart';
 import  Customer_details from "../customer_details"
 import {useUserContext} from "../../Usercontext/usercontext"

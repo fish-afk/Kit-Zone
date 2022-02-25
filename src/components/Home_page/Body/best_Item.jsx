@@ -70,7 +70,7 @@ export const Best_item = (props) => {
               <option value="X-L">X-Large</option>
               <option value="XX-L">XX-Large</option>
             </select>
-
+            
             {btn_enabler2(props.Qty_available)}
           </form>
         </div>

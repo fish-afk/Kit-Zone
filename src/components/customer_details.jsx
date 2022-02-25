@@ -79,6 +79,7 @@ export default function Customer_details(props) {
         order["order_type"] = "custom kit";
         order["order_status"] = "pending";
         order["delivery_date"] = delivery_date;
+        order["quantity"] = 1;
         order["_id"] = makeid(12);
         let arr_order = [order]
 

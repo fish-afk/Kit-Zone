@@ -31,7 +31,7 @@ export default function Pending_orders() {
 
     if(loading == true){
      return(<div className='container text-white fs-1 fw-bold'>
-     <SkeletonTheme animation="wave" baseColor="#ffffff" highlightColor="#8888"><Skeleton amount={1} height="60vh"/>
+     <SkeletonTheme animation="wave" baseColor="#657595" highlightColor="#ddd"><Skeleton amount={1} height="60vh"/>
     <Skeleton /><Skeleton /> <Skeleton />
    </SkeletonTheme>
      </div>);
@@ -47,7 +47,7 @@ export default function Pending_orders() {
             
             <Pending_order_template id={index} key={index} desc={order.description} name={order.name} price={order.price} 
             uid={uid} orderid={order._id} kit_type={order.order_type}
-            status={order.order_status} date={order.date} delivery={order.delivery_date}/>
+            status={order.order_status} date={order.date} delivery={order.delivery_date} qty={order.quantity.$numberInt}/>
       )));
         }
 
@@ -80,3 +80,7 @@ export default function Pending_orders() {
     </React.Fragment>
   )
 }
+
+
+
+

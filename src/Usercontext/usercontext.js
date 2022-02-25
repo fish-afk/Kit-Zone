@@ -9,8 +9,6 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   sendEmailVerification,
-  GithubAuthProvider,
-  deleteUser
   
 } from "firebase/auth";
 import { auth } from "../Firebase/firebase";

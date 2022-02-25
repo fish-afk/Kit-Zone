@@ -21,7 +21,7 @@ export default function SignInpage() {
         <div className="container bg-dark mt-5 text-white text-center">
             
         {error && <p className="error text-warning fw-bold"><br/><br/>{error}</p>}
-        {loading ? <SkeletonTheme animation="wave" baseColor="#ffffff" highlightColor="#8888"><Skeleton amount={1} height="60vh"/>
+        {loading ? <SkeletonTheme animation="wave" baseColor="#657595" highlightColor="#ddd"><Skeleton amount={1} height="60vh"/>
     <Skeleton /><Skeleton /> <Skeleton />
    </SkeletonTheme> : <> {user ? <Dashboard /> : <Auth />} </>}
         

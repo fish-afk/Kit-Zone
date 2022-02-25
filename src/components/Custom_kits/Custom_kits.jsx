@@ -1,9 +1,8 @@
 import React from 'react'
-import {useState, useEffect} from 'react'
+import  useEffect from 'react'
 import Socials_area from "../Home_page/socials_area"
 import { useUserContext } from "../../Usercontext/usercontext";
 import Customer_details from "../customer_details";
-import Modal from "../Navbar/modal";
 
 export default function Custom_kits() {
   const { user } = useUserContext();

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Item from './Item';
 import KitsDataService from "../fetch_kit_data.js"
 import { useEffect, useState } from 'react';
@@ -81,7 +81,7 @@ const Item_Renderer = (props) => {
   let loading_Profiles = [];
 
   for(let i = 0; i < 8 ; i++){
-    loading_Profiles.push(<SkeletonTheme animation="wave" baseColor="#ffffff" highlightColor="#8888"><Skeleton amount={1} height={200} key={i} id={i}/>
+    loading_Profiles.push(<SkeletonTheme animation="wave" baseColor="#657595" highlightColor="#ddd"><Skeleton amount={1} height={200} key={i} id={i}/>
      <Skeleton /><Skeleton /> <Skeleton />
     </SkeletonTheme>)
   }

@@ -2,19 +2,12 @@ import React, { Component } from 'react';
 import Modal from './modal';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { useCart } from 'react-use-cart';
-import {useEffect, useState} from "react"
 
 export default function Navbar(){  
 
   const {
-    isEmpty,
     totalUniqueItems,
-    items,
-    totalItems,
-    cartTotal,
-    updateItemQuantity,
-    removeItem,
-    emptyCart,
+  
   } = useCart();
 
   
