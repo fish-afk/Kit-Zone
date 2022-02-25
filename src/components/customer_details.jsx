@@ -43,7 +43,16 @@ export default function Customer_details(props) {
   const Place_order = async () => {
     const nowDate = new Date();
     const date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate();
+
     const delivery_date = form['date-chosen'].value;
+    const Name = form['sender-name'].value;
+    const number = form['sender-number'].value;
+    const Whatsapp = form['sender-whatsapp'].value;
+    const other_contact = form['sender-other-contact-info'].value;
+    const address = form['sender-address'].value;
+    const further_address = form['sender-further-address'].value;
+   
+
     if(getpath() == "/cart"){
         console.log("udegfugfasf");
         let data = {}
@@ -57,6 +66,10 @@ export default function Customer_details(props) {
           items[i]["order_type"] = "normal kit";
           items[i]["order_status"] = "pending";
           items[i]["delivery_date"] = delivery_date;
+          items[i]["Contact"] = Whatsapp + ": "+ other_contact;
+          items[i]["address"] = address + ": " + further_address;
+
+          
           dated_items.push(items[i]);
         }
 
@@ -80,6 +93,8 @@ export default function Customer_details(props) {
         order["order_status"] = "pending";
         order["delivery_date"] = delivery_date;
         order["quantity"] = 1;
+        order["Contact"] = Whatsapp + ": "+ other_contact;
+        order["address"] = address + ": " + further_address;
         order["_id"] = makeid(12);
         let arr_order = [order]
 
@@ -98,21 +113,15 @@ export default function Customer_details(props) {
 
   const return_html = () => {
     return (
-      `<div><p>Hello there! This is an order confirmation email, By clicking the link below:</p>
-       <p color="yellow">You accept to confirm all previously placed orders on kitzonezambia.com</p><br/>
-      <button class="btn btn-primary"><a href="instagram.com" color="yellow">click here</a></button><br/>
+      `<div><p>Hello there! This is an order confirmation email.</p>
+       <p color="yellow">If you recieved this email, you order has been placed. Please support us by following our instagram page</p><br/>
+      <button class="btn btn-primary"><a href="instagram.com/kitzone_" color="yellow">click here</a></button><br/>
       <p>If you were not expecting this email, kindly ignore it.</p></div>`
     );
   }
   const sendemail = (e) => {
     e.preventDefault();
-    const Name = form['sender-name'].value;
-    const number = form['sender-number'].value;
-    const Whatsapp = form['sender-whatsapp'].value;
-    const other_contact = form['sender-other-contact-info'].value;
-    const address = form['sender-address'].value;
-    const further_address = form['sender-further-address'].value;
-    const delivery_date = form['date-chosen'].value;
+    
 
     
     window.Email.send({

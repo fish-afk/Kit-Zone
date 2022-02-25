@@ -41,6 +41,7 @@ export const Main_item = (props) => {
     }
     
     item["size_chosen"] = size_chosen();
+    item["number"] = document.getElementById("numberonshirt").value;
     
     console.warn(item)
     addItem(item)
@@ -70,7 +71,7 @@ export const Main_item = (props) => {
               <option value="X-L">X-Large</option>
               <option value="XX-L">XX-Large</option>
             </select>
-            <input required style={{width:"100px"}} placeholder="Shirt number"></input>
+            <input required id="numberonshirt" style={{width:"100px"}} placeholder="Shirt number"></input>
             {btn_enabler2(props.Qty_available)}
           </form>
         </div>
