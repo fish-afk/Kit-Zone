@@ -66,8 +66,8 @@ export default function Customer_details(props) {
           items[i]["order_type"] = "normal kit";
           items[i]["order_status"] = "pending";
           items[i]["delivery_date"] = delivery_date;
-          items[i]["Contact"] = Whatsapp + ": "+ other_contact;
-          items[i]["address"] = address + ": " + further_address;
+          items[i]["Contact"] = Whatsapp + " and "+ other_contact;
+          items[i]["address"] = address + " || " + further_address;
 
           
           dated_items.push(items[i]);
@@ -93,8 +93,8 @@ export default function Customer_details(props) {
         order["order_status"] = "pending";
         order["delivery_date"] = delivery_date;
         order["quantity"] = 1;
-        order["Contact"] = Whatsapp + ": "+ other_contact;
-        order["address"] = address + ": " + further_address;
+        order["Contact"] = Whatsapp + " and "+ other_contact;
+        order["address"] = address + " || " + further_address;
         order["_id"] = makeid(12);
         let arr_order = [order]
 

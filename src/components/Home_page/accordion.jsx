@@ -14,8 +14,8 @@ export default function Accordion() {
     </h2>
     <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div className="accordion-body">
-        Kit zone is your one stop sport shop/online store for a variety of brand new sports clothing.
-        Here, you will find selected kits, sports wear and many other types of clothing.
+        Kit zone is your one stop sport shop/online store for a variety of brand new sports shirts/t-shirts/hoodies.
+        Here, you will find selected kits, sports wear and many other types of upper body clothing. Note that we only offer shirts/t-shirts or hoodies and no other type of cothing.
         We ensure quality in our customer service and support. For further queries on what we offer, you will find our socials <a href='#socials-area'>below
           </a>.
       </div>

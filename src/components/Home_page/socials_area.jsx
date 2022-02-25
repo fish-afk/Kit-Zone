@@ -30,6 +30,11 @@ export default class Socials_area extends Component {
 
                 
 							</div>
+              <ul>
+            <li className="text-white">Terms and conditions</li>
+            <li className="text-white">Payment policies</li>
+            </ul>
+
 						<div className="text-center mt-4">
 
               <a className="fw-bold font-lato specials text-white" style={{fontSize:"1.1rem", textDecoration:"none",
