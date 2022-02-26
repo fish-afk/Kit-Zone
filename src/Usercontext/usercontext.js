@@ -87,7 +87,7 @@ export const UserContextProvider = ({ children }) => {
         localStorage.setItem("uid", auth.currentUser.uid)
         newuser["creationdate"] = date + "";
         newuser["google_one"] = true
-        console.log(newuser);
+        
 
         Create_user_order_account(newuser)})
       .catch((err) => setError(err.code))

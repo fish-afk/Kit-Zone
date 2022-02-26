@@ -43,7 +43,7 @@ export const Main_item = (props) => {
     item["size_chosen"] = size_chosen();
     item["number"] = document.getElementById("numberonshirt").value;
     
-    console.warn(item)
+  
     addItem(item)
   }
 

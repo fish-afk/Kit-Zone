@@ -45,7 +45,7 @@ const Item = (props) => {
     
     item["size_chosen"] = size_chosen();
     item["teamname"] = props.color;
-    console.warn(item)
+    
     addItem(item)
   }
 

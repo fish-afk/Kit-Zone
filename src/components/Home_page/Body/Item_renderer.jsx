@@ -38,13 +38,11 @@ const Items = (props) => {
     setisLoading(true)
     await KitsDataService.getAllkits_for_a_specific_collection("other_kits")
       .then(response => {
-        console.log(response.data);
+        
         set_soccer_kits(response.data.kits);
     setisLoading(false);
         
-      }).then(
-        console.log(soccer_kits)
-      )
+      })
       .catch(error => {
         console.log(error);
         throw error;
@@ -54,7 +52,7 @@ const Items = (props) => {
   const retrieve_f1_kits = async () => {
     await KitsDataService.getAllkits_for_a_specific_collection("F1_kits")
       .then(response => {
-        console.log(response.data);
+        
         set_F1_kits(response.data.kits);
         
       }).then(
@@ -71,7 +69,7 @@ const Items = (props) => {
   const find = (query, by) => {
     KitsDataService.find(query, by)
       .then(response => {
-        console.log(response.data);
+        
         set_soccer_kits(response.data.kits);
         
         

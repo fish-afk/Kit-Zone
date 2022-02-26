@@ -42,7 +42,7 @@ export const Best_item = (props) => {
     
     item["size_chosen"] = size_chosen();
     
-    console.warn(item)
+    
     addItem(item)
   }
 

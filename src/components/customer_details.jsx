@@ -23,7 +23,7 @@ export default function Customer_details(props) {
     Resource_data_service.getall_data().then((res) => {
       Setdesc(res.data);
     }).catch(() => {
-      console.error("Failed to fetch resources.")
+      alert("Failed to fetch resources.")
     })
   }, [])
 
@@ -54,7 +54,7 @@ export default function Customer_details(props) {
    
 
     if(getpath() == "/cart"){
-        console.log("udegfugfasf");
+        
         let data = {}
         let order = JSON.parse(localStorage.getItem("react-use-cart"));
         let items = [...order.items];
@@ -85,7 +85,7 @@ export default function Customer_details(props) {
         });
       }
       else if(getpath() == "/custom-kits"){
-        console.log("ddddd");
+        
         let order = JSON.parse(localStorage.getItem("custm_kit"));
 
         order["date"] = date;

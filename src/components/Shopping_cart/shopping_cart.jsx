@@ -34,7 +34,7 @@ export default function Cart() {
     {return(<div className="conatiner row bg-white text-center fw-bold fs-1 mt-5"><h1 className="text-danger mt-5">Your Cart is empty...</h1>
     <img className="container" alt="cart-image" src="https://store.printville.net/content/images/empty-cart.png" style={{width:"25rem"}}></img>
     <h1 className="text-success fst-italic">Go ahead, <a href="/">fill it up</a> : )</h1></div>);}
-    console.warn(items)
+    
     return (
     <React.Fragment>
    <section className="py-4 container">

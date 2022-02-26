@@ -29,7 +29,7 @@ export default function Pending_order_template(props) {
     
     document.getElementById(props.id).innerHTML = `<h1 style="color: #139128;">Loading...</h1>`
     await UserDataService.Cancel_order(props.orderid,props.uid).then((res) => {
-        console.log(res);
+        
         if(res.status == 200){
             document.getElementById(props.id).innerHTML = `<h1 style="color: #baac0d;">Order cancelled</h1>`
         }

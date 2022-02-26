@@ -35,12 +35,10 @@ const Item_Renderer = (props) => {
     Setisloading(true)
     await KitsDataService.getAllkits_for_a_specific_collection("balr_kits")
       .then(response => {
-        console.log(response.data);
+        
         set_Balr_kits(response.data.kits);
         Setisloading(false);
-      }).then(
-        console.log(BALR_kits)
-      )
+      })
       .catch(error => {
         console.log(error);
         throw error;
@@ -50,7 +48,7 @@ const Item_Renderer = (props) => {
   const find = (query, by) => {
     KitsDataService.find(query, by)
       .then(response => {
-        console.log(response.data);
+        
         
         set_Balr_kits(response.data.kits);
         
