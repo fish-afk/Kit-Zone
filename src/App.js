@@ -12,6 +12,8 @@ import Custom_kits from "./components/Custom_kits/Final"
 import SignInpage from './components/SignInpage';
 import Customer_details from "./components/customer_details"
 import Pending_orders from "./components/Pending-orders"
+import Policies from "./components/Policies";
+import TCs from "./components/TCs"
 
 function App(){
 
@@ -26,7 +28,8 @@ function App(){
       <Route exact path="/auths" component={SignInpage}/>
       <Route exact path="/customer-details" component={Customer_details}/>
       <Route exact path="/my-orders" component={Pending_orders}/>
-      
+      <Route exact path="/Policies" component={Policies}/>
+      <Route exact path="/TCs" component={TCs}/>
       </CartProvider>
       </div>
     );

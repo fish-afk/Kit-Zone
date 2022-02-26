@@ -33,8 +33,8 @@ export default function Accordion() {
          However, if the customer is within close proximity,
         we might give it a second thought, hence we advise you to enter the correct address details on the website when placing an
         order. <br/><br/><strong>NO payments are collected through this website</strong> . Payments can be done with cash on delivery, mobile money (momo, airtel money e.t.c) or EFT. If you intend pay via 
-        mobile money or EFT, please first place and confirm your order, and then contact us through the same socials given <a href="socials-area">below </a> 
-        before paying.
+        mobile money or EFT, please first place and confirm your order, and then contact us through the same socials given <a href="#socials-area">below </a> 
+        before paying. Read more on <a href="/Policies">Payment policies</a>
       </div>
     </div>
   </div>
@@ -47,7 +47,7 @@ export default function Accordion() {
     <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
       <div className="accordion-body">
         Kitzone is designed and created to only be of service in Lusaka city of Zambia. We are a small business situated in Lusaka, so we have very little coverage at the time being, hence we will only accept orders from
-        the residents of Lusaka. If you feel the need to confirm if you can place an order, after considering your location, please feel free to contact us...
+        the residents of Lusaka. If you feel the need to confirm if you can place an order, after considering your location, please feel free to contact us. Read more on <a href="/TCs">Terms and Conditions</a>
       </div>
     </div>
   </div>

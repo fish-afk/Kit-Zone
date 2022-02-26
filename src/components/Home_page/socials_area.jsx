@@ -31,8 +31,8 @@ export default class Socials_area extends Component {
                 
 							</div>
               <ul>
-            <li className="text-white">Terms and conditions</li>
-            <li className="text-white">Payment policies</li>
+            <li className="text-white"><a href="/TCs" className="text-white">Terms and conditions</a></li>
+            <li className="text-white"><a href="/Policies" className="text-white">Payment policies</a></li>
             </ul>
 
 						<div className="text-center mt-4">

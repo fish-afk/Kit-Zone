@@ -16,8 +16,8 @@ export default function Navbar(){
   }
 
     return(
-        <div>
-        <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div >
+        <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style={{border:"1px solid white"}}>
         <div className="container-fluid">
           <a className="navbar-brand ml-3" id="Brand">Kit-Zone</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
