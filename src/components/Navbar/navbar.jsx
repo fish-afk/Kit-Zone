@@ -15,13 +15,19 @@ export default function Navbar(){
     document.getElementById("burger").click();
   }
 
+  const totallogic = () => {
+    if (totalUniqueItems > 0 ){
+      return <div className="text-danger text-end">!</div>
+    }
+  }
+
     return(
         <div >
         <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style={{border:"1px solid white"}}>
         <div className="container-fluid">
           <a className="navbar-brand ml-3" id="Brand">Kit-Zone</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-            <span className="navbar-toggler-icon outline-white" id="burger"></span>
+          <div className="container text-end text-danger">{totallogic()}</div> <span className="navbar-toggler-icon outline-white" id="burger"></span>
           </button>
           <div className="navbar-collapse collapse" id="navmenu">
             <ul className="navbar-nav ms-auto hover-toggle smooth-scroll">
