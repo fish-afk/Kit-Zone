@@ -122,7 +122,7 @@ export default function Customer_details(props) {
   const sendemail = (e) => {
     e.preventDefault();
     
-
+    document.getElementById("confirm").outerHTML = `<h2>Loading...</h2`
     
     window.Email.send({
       Host : "smtp.gmail.com",
@@ -138,11 +138,13 @@ export default function Customer_details(props) {
     (message) => {if(message == "OK") {
       Place_order()
       alert("Order confirmation email sent!\n You may now close this dialog box");
+      
     
     }
     }
   ).catch((err) => {
     alert(err);
+    
   });
       
     
@@ -190,7 +192,7 @@ export default function Customer_details(props) {
               <input name="date" max="3" type="date" required placeholder="please select a valid date" id="date-chosen" className="form-control"></input>
             </div>
            
-            <button className="btn-secondary" type="submit">Proceed to confirm</button>
+            <button className="btn-secondary" id="confirm" type="submit">Proceed to confirm</button>
           </form>
           <div className="modal-footer">
           
