@@ -51,6 +51,7 @@ export default class Modal extends Component{
    }
     async send_email(e){
       
+      
       let KEYS = null;
       const close_btn = document.getElementById("closeit");
       await Resource_data_service.getall_data(true).then((response) => {
@@ -83,7 +84,7 @@ export default class Modal extends Component{
         document.getElementById("message-text").style.border = "4px solid red";
 
       }else{
-        
+        document.getElementById("send-btn").outerHTML = `<h2>Loading</h2>`
         await send(KEYS.service_key, KEYS.template_key, params, KEYS.user_key ).then((response) => {
          
          if(response.status === 200){
@@ -97,6 +98,7 @@ export default class Modal extends Component{
          }else{
           close_btn.click()
            alert("An error occured while trying to send an email...\n" + response.status);
+           
            
          }
         })
