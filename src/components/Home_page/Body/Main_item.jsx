@@ -44,7 +44,7 @@ export const Main_item = (props) => {
     let number = document.getElementById("numberonshirt").value;
     
     
-    if(number != "" || number != undefined || number != null){
+    if(number != "" && number != undefined && number != null){
       item["number"] = number;
       addItem(item)
     }
