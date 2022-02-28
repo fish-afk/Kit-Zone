@@ -41,10 +41,13 @@ export const Main_item = (props) => {
     }
     
     item["size_chosen"] = size_chosen();
-    item["number"] = document.getElementById("numberonshirt").value;
+    let number = document.getElementById("numberonshirt").value;
     
-  
-    addItem(item)
+    
+    if(number != "" || number != undefined || number != null){
+      item["number"] = number;
+      addItem(item)
+    }
   }
 
   const btn_enabler2 = (qty) => {

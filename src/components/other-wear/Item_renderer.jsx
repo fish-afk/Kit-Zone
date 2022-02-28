@@ -27,7 +27,7 @@ const Item_Renderer = (props) => {
   };
 
   const clear = () => {
-    find("", "teamname")
+    find("", "color")
   };
  
 
@@ -46,7 +46,7 @@ const Item_Renderer = (props) => {
   };
 
   const find = (query, by) => {
-    KitsDataService.find(query, by)
+    KitsDataService.find2(query, by)
       .then(response => {
         
         

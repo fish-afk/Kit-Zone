@@ -18,6 +18,10 @@ class KitDataService {
   getAllkits_for_a_specific_collection(query ,by = "collections"){
     return axios.get(`${URL}/get_All_for_specified?${by}=${query}`)
   }
+
+  find2(query, by="color", page=0){
+    return axios.get(`${URL}/balrfilter?${by}=${query}&page=${page}`)
+  }
  // createReview(data) {
  //   return axios.post("/review-new", data);
  // }
