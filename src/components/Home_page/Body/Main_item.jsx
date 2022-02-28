@@ -6,6 +6,7 @@ export const Main_item = (props) => {
 
   const { addItem } = useCart()
 
+  
   let size_chosen = "S"
   const checker2 = (Qty) => {
   
@@ -36,22 +37,15 @@ export const Main_item = (props) => {
     let size_chosen = () => {
       let ans = size.length < 1 ? "S" : size;
       return ans
-
-
     }
     
     item["size_chosen"] = size_chosen();
-    let number = document.getElementById("numberonshirt").value;
     
-    
-    if(number != "" && number != undefined && number != null){
-      item["number"] = number;
-      addItem(item)
-    }
+    addItem(item)
   }
 
   const btn_enabler2 = (qty) => {
-  return(qty < 1 ? <p></p> : <button onClick={return_qty} type="submit" className="btn btn-primary">Add to cart</button>)
+  return(qty < 1 ? <p></p> : <button onClick={return_qty} type="button" className="btn btn-primary">Add to cart</button>)
   }
   
 
@@ -74,9 +68,10 @@ export const Main_item = (props) => {
               <option value="X-L">X-Large</option>
               <option value="XX-L">XX-Large</option>
             </select>
-            <input required id="numberonshirt" style={{width:"100px"}} placeholder="Shirt number"></input>
-            {btn_enabler2(props.Qty_available)}
+            
           </form>
+          <input required className="numberonshirt" style={{width:"100px"}} type="text" placeholder="Shirt number"></input>
+            {btn_enabler2(props.Qty_available)}
         </div>
       </div>
       </div>

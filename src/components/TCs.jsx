@@ -23,7 +23,7 @@ export default function TCs() {
         <li>No deliveries can be made by us, so you will have to manually collect your placed order, but this might change, so please contact us after placing order to let you know where to collect or if we will deliver...</li>
         <li>Orders should be made using this site, and not using our socials/contacts, unless you want to make queries or confirm something, then please feel free to contact us.</li>
         <li>Customised kits have no specific prices, these are going to be told once you place your order through the <a href="/custom-kits">Custom kits</a> section.</li>
-
+        
     </ul>
     
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
