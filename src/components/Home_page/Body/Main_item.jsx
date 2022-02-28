@@ -6,7 +6,7 @@ export const Main_item = (props) => {
 
   const { addItem } = useCart()
 
-  
+ 
   let size_chosen = "S"
   const checker2 = (Qty) => {
   
@@ -31,17 +31,26 @@ export const Main_item = (props) => {
   
   const return_qty = () => {
     
+    try{
     let item= Object.assign({}, props.item)
 
+    let number = document.getElementById("numberonshirt").value;
     let size = choose_sizes();
     let size_chosen = () => {
       let ans = size.length < 1 ? "S" : size;
       return ans
+
+
     }
     
     item["size_chosen"] = size_chosen();
-    
+    item["number"] = number;
     addItem(item)
+    alert("Added to cart!")
+  }catch(e){
+    alert("error\n" + e)
+  }
+  
   }
 
   const btn_enabler2 = (qty) => {
@@ -70,7 +79,7 @@ export const Main_item = (props) => {
             </select>
             
           </form>
-          <input required className="numberonshirt" style={{width:"100px"}} type="text" placeholder="Shirt number"></input>
+          <input required id="numberonshirt" style={{width:"100px"}} type="text" placeholder="Shirt number"></input>
             {btn_enabler2(props.Qty_available)}
         </div>
       </div>

@@ -30,6 +30,7 @@ export const Best_item = (props) => {
 
   
   const return_qty = () => {
+    try{
     let item= Object.assign({}, props.item)
 
     let size = choose_sizes();
@@ -41,9 +42,13 @@ export const Best_item = (props) => {
     }
     
     item["size_chosen"] = size_chosen();
-    
-    
     addItem(item)
+    alert("Added to cart!")
+  }catch{
+    alert("Error occured")
+  }
+    
+    
   }
 
   const btn_enabler2 = (qty) => {

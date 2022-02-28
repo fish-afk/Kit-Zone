@@ -33,6 +33,7 @@ const Item = (props) => {
 
   
   const return_qty = () => {
+    try{
     let item= Object.assign({}, props.item)
 
     let size = choose_sizes();
@@ -47,6 +48,10 @@ const Item = (props) => {
     item["teamname"] = props.color;
     
     addItem(item)
+    alert("Added to cart!")
+  }catch(err){
+    alert(err)
+  }
   }
 
   const btn_enabler2 = (qty) => {
