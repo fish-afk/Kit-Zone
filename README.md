@@ -1,3 +1,5 @@
 # kit zone
 
-A website made in react.js for selling soccer kits.
+soccer kits store.
+react.js ui with mongodb atlas backend.
+
